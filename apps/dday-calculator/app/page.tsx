@@ -4,23 +4,39 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/ui";
 import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
-import { Button } from "@cal/ui";
+import { Alert, AlertDescription } from "@cal/ui";
+import { validateDate } from "@cal/utils";
 
 export default function DDayCalculator() {
   const [targetDate, setTargetDate] = useState<string>("");
   const [dday, setDday] = useState<number | null>(null);
   const [isPast, setIsPast] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (targetDate) {
       calculateDDay();
+    } else {
+      setDday(null);
+      setError(null);
     }
   }, [targetDate]);
 
   const calculateDDay = () => {
-    if (!targetDate) return;
+    setError(null);
+    if (!targetDate) {
+      setDday(null);
+      return;
+    }
 
     const target = new Date(targetDate);
+    const validation = validateDate(target, "목표 날짜");
+    if (!validation.valid) {
+      setError(validation.error || "올바른 날짜를 입력해주세요.");
+      setDday(null);
+      return;
+    }
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     target.setHours(0, 0, 0, 0);
@@ -57,13 +73,22 @@ export default function DDayCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="targetDate">목표 날짜</Label>
               <Input
                 id="targetDate"
                 type="date"
                 value={targetDate}
-                onChange={(e) => setTargetDate(e.target.value)}
+                onChange={(e) => {
+                  setTargetDate(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
               />
             </div>
@@ -106,4 +131,3 @@ export default function DDayCalculator() {
     </div>
   );
 }
-

@@ -5,32 +5,63 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/
 import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
 import { Button } from "@cal/ui";
+import { Alert, AlertDescription } from "@cal/ui";
 import QRCode from "qrcode";
 
 export default function QRGenerator() {
   const [text, setText] = useState<string>("");
   const [qrCode, setQrCode] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     if (text) {
-      QRCode.toDataURL(text)
-        .then((url) => {
-          setQrCode(url);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      generateQR();
     } else {
       setQrCode("");
+      setError(null);
     }
   }, [text]);
 
+  const generateQR = async () => {
+    if (!text.trim()) {
+      setQrCode("");
+      return;
+    }
+
+    try {
+      setIsGenerating(true);
+      setError(null);
+      const url = await QRCode.toDataURL(text, {
+        width: 300,
+        margin: 2,
+        color: {
+          dark: "#000000",
+          light: "#FFFFFF",
+        },
+      });
+      setQrCode(url);
+    } catch (err) {
+      console.error("QR code generation error:", err);
+      setError("QR 코드 생성 중 오류가 발생했습니다.");
+      setQrCode("");
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   const downloadQR = () => {
     if (qrCode) {
-      const link = document.createElement("a");
-      link.href = qrCode;
-      link.download = "qrcode.png";
-      link.click();
+      try {
+        const link = document.createElement("a");
+        link.href = qrCode;
+        link.download = `qrcode-${Date.now()}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (err) {
+        setError("QR 코드 다운로드 중 오류가 발생했습니다.");
+      }
     }
   };
 
@@ -52,6 +83,12 @@ export default function QRGenerator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="text">텍스트 또는 URL</Label>
               <Input
@@ -59,12 +96,25 @@ export default function QRGenerator() {
                 type="text"
                 placeholder="예: https://example.com 또는 텍스트"
                 value={text}
-                onChange={(e) => setText(e.target.value)}
+                onChange={(e) => {
+                  setText(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                maxLength={2000}
               />
+              <p className="text-xs text-gray-500">
+                {text.length}/2000자
+              </p>
             </div>
 
-            {qrCode && (
+            {isGenerating && (
+              <div className="text-center text-gray-600">
+                QR 코드 생성 중...
+              </div>
+            )}
+
+            {qrCode && !isGenerating && (
               <div className="mt-8 p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border-2 border-amber-200">
                 <div className="text-center space-y-4">
                   <div>
@@ -87,4 +137,3 @@ export default function QRGenerator() {
     </div>
   );
 }
-

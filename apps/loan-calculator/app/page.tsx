@@ -5,7 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/
 import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
 import { Button } from "@cal/ui";
+import { Alert, AlertDescription } from "@cal/ui";
 import { formatNumber, formatCurrency } from "@cal/utils";
+import { validateLoanAmount, validateInterestRate, validatePeriod } from "@cal/utils";
 
 export default function LoanCalculator() {
   const [loanAmount, setLoanAmount] = useState<string>("");
@@ -16,22 +18,56 @@ export default function LoanCalculator() {
     totalInterest: number;
     totalPayment: number;
   } | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const calculate = () => {
+    setError(null);
     const loanAmountNum = parseFloat(loanAmount);
-    const rateNum = parseFloat(rate) / 100 / 12; // 월 이자율
-    const periodNum = parseFloat(period) * 12; // 월 수
+    const rateNum = parseFloat(rate);
+    const periodNum = parseFloat(period);
 
-    if (isNaN(loanAmountNum) || isNaN(rateNum) || isNaN(periodNum)) {
+    const amountValidation = validateLoanAmount(loanAmountNum);
+    if (!amountValidation.valid) {
+      setError(amountValidation.error || "대출 금액을 확인해주세요.");
+      setResult(null);
       return;
     }
 
-    // 원리금균등분할 상환 계산
-    const monthlyPayment =
-      (loanAmountNum * rateNum * Math.pow(1 + rateNum, periodNum)) /
-      (Math.pow(1 + rateNum, periodNum) - 1);
+    const rateValidation = validateInterestRate(rateNum);
+    if (!rateValidation.valid) {
+      setError(rateValidation.error || "이자율을 확인해주세요.");
+      setResult(null);
+      return;
+    }
 
-    const totalPayment = monthlyPayment * periodNum;
+    const periodValidation = validatePeriod(periodNum, 50);
+    if (!periodValidation.valid) {
+      setError(periodValidation.error || "상환 기간을 확인해주세요.");
+      setResult(null);
+      return;
+    }
+
+    const rateDecimal = rateNum / 100 / 12; // 월 이자율
+    const periodMonths = periodNum * 12; // 월 수
+
+    // 원리금균등분할 상환 계산
+    if (rateDecimal === 0) {
+      // 이자율이 0인 경우
+      const monthlyPayment = loanAmountNum / periodMonths;
+      const totalPayment = loanAmountNum;
+      setResult({
+        monthlyPayment,
+        totalInterest: 0,
+        totalPayment,
+      });
+      return;
+    }
+
+    const monthlyPayment =
+      (loanAmountNum * rateDecimal * Math.pow(1 + rateDecimal, periodMonths)) /
+      (Math.pow(1 + rateDecimal, periodMonths) - 1);
+
+    const totalPayment = monthlyPayment * periodMonths;
     const totalInterest = totalPayment - loanAmountNum;
 
     setResult({
@@ -59,6 +95,12 @@ export default function LoanCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="loanAmount">대출 금액 (원)</Label>
               <Input
@@ -66,8 +108,13 @@ export default function LoanCalculator() {
                 type="number"
                 placeholder="예: 100000000"
                 value={loanAmount}
-                onChange={(e) => setLoanAmount(e.target.value)}
+                onChange={(e) => {
+                  setLoanAmount(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="1000"
+                step="10000"
               />
             </div>
 
@@ -78,8 +125,14 @@ export default function LoanCalculator() {
                 type="number"
                 placeholder="예: 3.5"
                 value={rate}
-                onChange={(e) => setRate(e.target.value)}
+                onChange={(e) => {
+                  setRate(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="0"
+                max="100"
+                step="0.1"
               />
             </div>
 
@@ -90,8 +143,14 @@ export default function LoanCalculator() {
                 type="number"
                 placeholder="예: 20"
                 value={period}
-                onChange={(e) => setPeriod(e.target.value)}
+                onChange={(e) => {
+                  setPeriod(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="0.1"
+                max="50"
+                step="0.1"
               />
             </div>
 
@@ -140,4 +199,3 @@ export default function LoanCalculator() {
     </div>
   );
 }
-

@@ -5,7 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/
 import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
 import { Button } from "@cal/ui";
+import { Alert, AlertDescription } from "@cal/ui";
+import { Select } from "@cal/ui";
 import { formatNumber, formatCurrency } from "@cal/utils";
+import { validatePositive, validateInterestRate, validatePeriod } from "@cal/utils";
 
 export default function InterestCalculator() {
   const [principal, setPrincipal] = useState<string>("");
@@ -16,24 +19,44 @@ export default function InterestCalculator() {
     total: number;
     interest: number;
   } | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const calculate = () => {
+    setError(null);
     const principalNum = parseFloat(principal);
-    const rateNum = parseFloat(rate) / 100;
+    const rateNum = parseFloat(rate);
     const periodNum = parseFloat(period);
 
-    if (isNaN(principalNum) || isNaN(rateNum) || isNaN(periodNum)) {
+    const principalValidation = validatePositive(principalNum, "원금");
+    if (!principalValidation.valid) {
+      setError(principalValidation.error || "원금을 확인해주세요.");
+      setResult(null);
       return;
     }
 
+    const rateValidation = validateInterestRate(rateNum);
+    if (!rateValidation.valid) {
+      setError(rateValidation.error || "이자율을 확인해주세요.");
+      setResult(null);
+      return;
+    }
+
+    const periodValidation = validatePeriod(periodNum);
+    if (!periodValidation.valid) {
+      setError(periodValidation.error || "기간을 확인해주세요.");
+      setResult(null);
+      return;
+    }
+
+    const rateDecimal = rateNum / 100;
     let total = 0;
     let interest = 0;
 
     if (type === "simple") {
-      interest = principalNum * rateNum * periodNum;
+      interest = principalNum * rateDecimal * periodNum;
       total = principalNum + interest;
     } else {
-      total = principalNum * Math.pow(1 + rateNum, periodNum);
+      total = principalNum * Math.pow(1 + rateDecimal, periodNum);
       interest = total - principalNum;
     }
 
@@ -58,16 +81,22 @@ export default function InterestCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label>이자 계산 방식</Label>
-              <select
+              <Select
                 value={type}
                 onChange={(e) => setType(e.target.value as typeof type)}
-                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background"
-              >
-                <option value="compound">복리</option>
-                <option value="simple">단리</option>
-              </select>
+                options={[
+                  { value: "compound", label: "복리" },
+                  { value: "simple", label: "단리" },
+                ]}
+              />
             </div>
 
             <div className="space-y-2">
@@ -77,8 +106,13 @@ export default function InterestCalculator() {
                 type="number"
                 placeholder="예: 1000000"
                 value={principal}
-                onChange={(e) => setPrincipal(e.target.value)}
+                onChange={(e) => {
+                  setPrincipal(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="1"
+                step="1000"
               />
             </div>
 
@@ -89,8 +123,14 @@ export default function InterestCalculator() {
                 type="number"
                 placeholder="예: 3.5"
                 value={rate}
-                onChange={(e) => setRate(e.target.value)}
+                onChange={(e) => {
+                  setRate(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="0"
+                max="100"
+                step="0.1"
               />
             </div>
 
@@ -101,8 +141,14 @@ export default function InterestCalculator() {
                 type="number"
                 placeholder="예: 1"
                 value={period}
-                onChange={(e) => setPeriod(e.target.value)}
+                onChange={(e) => {
+                  setPeriod(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="0.1"
+                max="100"
+                step="0.1"
               />
             </div>
 
@@ -144,4 +190,3 @@ export default function InterestCalculator() {
     </div>
   );
 }
-

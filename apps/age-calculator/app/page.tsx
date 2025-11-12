@@ -5,6 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/
 import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
 import { Button } from "@cal/ui";
+import { Alert, AlertDescription } from "@cal/ui";
+import { validateDate } from "@cal/utils";
 
 export default function AgeCalculator() {
   const [birthDate, setBirthDate] = useState<string>("");
@@ -14,17 +16,26 @@ export default function AgeCalculator() {
     days: number;
     months: number;
   } | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const calculateAge = () => {
-    if (!birthDate) return;
-
-    const birth = new Date(birthDate);
-    const today = new Date();
-
-    if (birth > today) {
-      alert("미래 날짜는 입력할 수 없습니다.");
+    setError(null);
+    if (!birthDate) {
+      setError("생년월일을 입력해주세요.");
       return;
     }
+
+    const birth = new Date(birthDate);
+    const validation = validateDate(birth, "생년월일");
+    if (!validation.valid) {
+      setError(validation.error || "올바른 생년월일을 입력해주세요.");
+      setResult(null);
+      return;
+    }
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    birth.setHours(0, 0, 0, 0);
 
     // 한국 나이 (생일과 관계없이 +1)
     const koreanAge = today.getFullYear() - birth.getFullYear() + 1;
@@ -75,13 +86,22 @@ export default function AgeCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="birthDate">생년월일</Label>
               <Input
                 id="birthDate"
                 type="date"
                 value={birthDate}
-                onChange={(e) => setBirthDate(e.target.value)}
+                onChange={(e) => {
+                  setBirthDate(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
                 max={new Date().toISOString().split("T")[0]}
               />
@@ -146,4 +166,3 @@ export default function AgeCalculator() {
     </div>
   );
 }
-

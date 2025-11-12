@@ -13,6 +13,7 @@ export default function TextCounter() {
   const lineCount = text === "" ? 0 : text.split("\n").length;
   const paragraphCount =
     text.trim() === "" ? 0 : text.trim().split(/\n\s*\n/).length;
+  const byteCount = new Blob([text]).size;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 to-pink-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -41,9 +42,12 @@ export default function TextCounter() {
                 className="flex min-h-[200px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="텍스트를 입력하세요..."
               />
+              <p className="text-xs text-gray-500">
+                {characterCount.toLocaleString()}자 입력됨
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div className="p-4 bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg border border-rose-200">
                 <p className="text-sm text-gray-600 mb-1">글자 수</p>
                 <p className="text-2xl font-bold text-rose-600">
@@ -74,6 +78,12 @@ export default function TextCounter() {
                   {paragraphCount.toLocaleString()}
                 </p>
               </div>
+              <div className="p-4 bg-gradient-to-r from-rose-50 to-pink-50 rounded-lg border border-rose-200">
+                <p className="text-sm text-gray-600 mb-1">바이트 수</p>
+                <p className="text-2xl font-bold text-pink-600">
+                  {byteCount.toLocaleString()}
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -81,4 +91,3 @@ export default function TextCounter() {
     </div>
   );
 }
-

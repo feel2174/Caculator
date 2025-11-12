@@ -5,19 +5,27 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/
 import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
 import { Button } from "@cal/ui";
+import { Alert, AlertDescription } from "@cal/ui";
 import { formatNumber } from "@cal/utils";
+import { validateBMI } from "@cal/utils";
 
 export default function BMICalculator() {
   const [height, setHeight] = useState<string>("");
   const [weight, setWeight] = useState<string>("");
   const [bmi, setBmi] = useState<number | null>(null);
   const [category, setCategory] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   const calculateBMI = () => {
+    setError(null);
     const heightNum = parseFloat(height);
     const weightNum = parseFloat(weight);
 
-    if (isNaN(heightNum) || isNaN(weightNum) || heightNum <= 0 || weightNum <= 0) {
+    const validation = validateBMI(heightNum, weightNum);
+    if (!validation.valid) {
+      setError(validation.error || "입력값을 확인해주세요.");
+      setBmi(null);
+      setCategory("");
       return;
     }
 
@@ -63,6 +71,12 @@ export default function BMICalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="height">키 (cm)</Label>
               <Input
@@ -70,8 +84,14 @@ export default function BMICalculator() {
                 type="number"
                 placeholder="예: 170"
                 value={height}
-                onChange={(e) => setHeight(e.target.value)}
+                onChange={(e) => {
+                  setHeight(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="50"
+                max="300"
+                step="0.1"
               />
             </div>
 
@@ -82,8 +102,14 @@ export default function BMICalculator() {
                 type="number"
                 placeholder="예: 70"
                 value={weight}
-                onChange={(e) => setWeight(e.target.value)}
+                onChange={(e) => {
+                  setWeight(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="10"
+                max="500"
+                step="0.1"
               />
             </div>
 

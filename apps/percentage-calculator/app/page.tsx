@@ -5,18 +5,32 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/
 import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
 import { Button } from "@cal/ui";
+import { Alert, AlertDescription } from "@cal/ui";
 import { formatNumber } from "@cal/utils";
+import { validatePositive, validatePercentage } from "@cal/utils";
 
 export default function PercentageCalculator() {
   const [value, setValue] = useState<string>("");
   const [percentage, setPercentage] = useState<string>("");
   const [result, setResult] = useState<number | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const calculate = () => {
+    setError(null);
     const valueNum = parseFloat(value);
     const percentageNum = parseFloat(percentage);
 
-    if (isNaN(valueNum) || isNaN(percentageNum)) {
+    const valueValidation = validatePositive(valueNum, "값");
+    if (!valueValidation.valid) {
+      setError(valueValidation.error || "값을 확인해주세요.");
+      setResult(null);
+      return;
+    }
+
+    const percentageValidation = validatePercentage(percentageNum);
+    if (!percentageValidation.valid) {
+      setError(percentageValidation.error || "퍼센트를 확인해주세요.");
+      setResult(null);
       return;
     }
 
@@ -42,6 +56,12 @@ export default function PercentageCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="value">값</Label>
               <Input
@@ -49,8 +69,13 @@ export default function PercentageCalculator() {
                 type="number"
                 placeholder="예: 1000"
                 value={value}
-                onChange={(e) => setValue(e.target.value)}
+                onChange={(e) => {
+                  setValue(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="0"
+                step="0.01"
               />
             </div>
 
@@ -61,8 +86,14 @@ export default function PercentageCalculator() {
                 type="number"
                 placeholder="예: 20"
                 value={percentage}
-                onChange={(e) => setPercentage(e.target.value)}
+                onChange={(e) => {
+                  setPercentage(e.target.value);
+                  setError(null);
+                }}
                 className="text-lg"
+                min="0"
+                max="1000"
+                step="0.1"
               />
             </div>
 
@@ -98,4 +129,3 @@ export default function PercentageCalculator() {
     </div>
   );
 }
-
