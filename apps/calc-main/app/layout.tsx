@@ -24,6 +24,21 @@ const seoConfig = {
 
 export const metadata: Metadata = generateSEOMetadata(seoConfig);
 
+// 각 페이지별 SEO 설정을 위한 헬퍼 함수
+export function getPageSEO(title: string, description: string, path: string) {
+  return {
+    title,
+    description,
+    keywords: [
+      title,
+      "계산기",
+      "zucca100",
+      ...description.split(" ").slice(0, 5),
+    ],
+    canonical: `https://calc.zucca100.com${path}`,
+  };
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{

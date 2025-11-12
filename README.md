@@ -71,7 +71,17 @@ pnpm build
 
 ## 앱 목록
 
-각 앱은 독립적인 Next.js 애플리케이션으로 구성되어 있으며, 서브도메인으로 배포됩니다:
+### 메인 통합 앱
+
+**calc-main** (포트 3000) - **권장 배포 방식**
+- **하위 도메인**: `calc.zucca100.com`
+- 모든 계산기를 하나의 앱에서 통합 관리
+- 메인 페이지에서 모든 계산기 목록 제공
+- 각 계산기는 하위 경로로 접근 가능
+
+### 독립 앱 (선택사항)
+
+각 계산기를 독립적인 앱으로도 배포할 수 있습니다:
 
 1. **BMI 계산기** (`bmi-calculator`) - 포트 3001
 2. **만나이 계산기** (`age-calculator`) - 포트 3002
@@ -88,28 +98,56 @@ pnpm build
 
 ## 배포
 
-각 앱은 Vercel을 통해 서브도메인으로 배포됩니다:
-- `bmi.yourdomain.com`
-- `age.yourdomain.com`
-- `dday.yourdomain.com`
-- `percentage.yourdomain.com`
-- `unit.yourdomain.com`
-- `interest.yourdomain.com`
-- `loan.yourdomain.com`
-- `color.yourdomain.com`
-- `qr.yourdomain.com`
-- `password.yourdomain.com`
-- `text.yourdomain.com`
-- `currency.yourdomain.com`
+### 메인 앱 배포 (권장)
+
+**calc-main** 앱을 Vercel에 배포하고 하위 도메인을 설정합니다:
+
+- **메인 도메인**: `calc.zucca100.com`
+- **하위 경로**:
+  - `calc.zucca100.com/` - 메인 페이지 (모든 계산기 목록)
+  - `calc.zucca100.com/bmi` - BMI 계산기
+  - `calc.zucca100.com/age` - 만나이 계산기
+  - `calc.zucca100.com/dday` - D-Day 계산기
+  - `calc.zucca100.com/percentage` - 퍼센트 계산기
+  - `calc.zucca100.com/unit` - 단위 변환기
+  - `calc.zucca100.com/interest` - 이자 계산기
+  - `calc.zucca100.com/loan` - 대출 계산기
+  - `calc.zucca100.com/color` - 색상 코드 변환기
+  - `calc.zucca100.com/qr` - QR 코드 생성기
+  - `calc.zucca100.com/password` - 비밀번호 생성기
+  - `calc.zucca100.com/text` - 텍스트 카운터
+  - `calc.zucca100.com/currency` - 환율 계산기
+
+### 독립 앱 배포 (선택사항)
+
+각 앱을 개별 서브도메인으로 배포할 수도 있습니다:
+- `bmi.zucca100.com`
+- `age.zucca100.com`
+- `dday.zucca100.com`
+- 등등...
 
 ## 개발 가이드
 
-### 개별 앱 실행
+### 메인 앱 실행 (권장)
+
+```bash
+# 메인 통합 앱 실행
+cd apps/calc-main
+pnpm dev
+# 또는 루트에서
+pnpm --filter calc-main dev
+```
+
+메인 앱은 `http://localhost:3000`에서 실행됩니다.
+
+### 개별 독립 앱 실행
 
 ```bash
 # 특정 앱만 실행
 cd apps/bmi-calculator
 pnpm dev
+# 또는 루트에서
+pnpm --filter bmi-calculator dev
 ```
 
 ### 전체 빌드
@@ -119,8 +157,37 @@ pnpm dev
 pnpm build
 ```
 
+### 특정 앱만 빌드
+
+```bash
+# 메인 앱만 빌드
+pnpm --filter calc-main build
+
+# 특정 독립 앱만 빌드
+pnpm --filter bmi-calculator build
+```
+
 ## SEO 최적화
 
-각 앱은 독립적인 SEO 설정을 가지고 있으며, `@cal/seo` 패키지를 통해 메타데이터를 생성합니다.
+각 페이지는 독립적인 SEO 설정을 가지고 있으며, `@cal/seo` 패키지를 통해 메타데이터를 생성합니다.
 
-# Caculator
+### 메인 앱 SEO 구조
+
+- 메인 페이지 (`/`): 전체 계산기 도구 모음에 대한 SEO
+- 각 계산기 페이지 (`/bmi`, `/age` 등): 개별 계산기에 대한 독립적인 SEO
+- 각 페이지는 고유한 메타 태그, Open Graph, Twitter Card를 가집니다
+
+### 독립 앱 SEO
+
+각 독립 앱도 자체 SEO 설정을 가지고 있어 개별 배포 시에도 최적화된 SEO를 제공합니다.
+
+## 주요 기능
+
+- ✅ 12가지 다양한 계산기 및 유틸리티 도구
+- ✅ 통합 관리 가능한 메인 앱
+- ✅ 반응형 디자인 (모바일/태블릿/데스크톱)
+- ✅ 실시간 환율 API 연동
+- ✅ 입력 검증 및 에러 처리
+- ✅ SEO 최적화
+- ✅ 공통 UI 컴포넌트 재사용
+- ✅ 타입 안전성 (TypeScript)
