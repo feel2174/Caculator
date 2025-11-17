@@ -85,6 +85,10 @@ export default async function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        <meta
+          name="naver-site-verification"
+          content="60463ab553609557e2fe5463c5c07369f396e329"
+        />
         {/* Structured Data - WebSite */}
         <StructuredDataServer type="WebSite" />
       </head>
