@@ -28,6 +28,7 @@ export async function getPageSEO(
       ...t(descriptionKey).split(" ").slice(0, 5),
     ],
     canonical: `https://calc.zucca100.com/${locale}${path}`,
+    url: `https://calc.zucca100.com/${locale}${path}`,
     alternates: {
       languages: {
         ko: `https://calc.zucca100.com/ko${path}`,
