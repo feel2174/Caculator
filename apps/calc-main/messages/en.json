@@ -1,0 +1,304 @@
+{
+  "common": {
+    "appName": "Calculator Tools",
+    "language": "Language",
+    "korean": "한국어",
+    "english": "English"
+  },
+  "home": {
+    "title": "Calculator Tools",
+    "subtitle": "Use various calculators and utility tools you need in daily life all in one place",
+    "totalCalculators": "We provide {count} calculator tools",
+    "calculators": {
+      "bmi": {
+        "title": "BMI Calculator",
+        "description": "Calculate your Body Mass Index to check your health status"
+      },
+      "age": {
+        "title": "Age Calculator",
+        "description": "Enter your date of birth to calculate your exact age"
+      },
+      "dday": {
+        "title": "D-Day Calculator",
+        "description": "Calculate the number of days remaining until your target date"
+      },
+      "percentage": {
+        "title": "Percentage Calculator",
+        "description": "Calculate percentages easily and quickly"
+      },
+      "unit": {
+        "title": "Unit Converter",
+        "description": "Convert various units easily and quickly"
+      },
+      "interest": {
+        "title": "Interest Calculator",
+        "description": "Calculate interest for deposits, savings, and loans"
+      },
+      "loan": {
+        "title": "Loan Calculator",
+        "description": "Calculate loan repayment amounts"
+      },
+      "color": {
+        "title": "Color Code Converter",
+        "description": "Easily convert HEX, RGB, HSL color codes"
+      },
+      "qr": {
+        "title": "QR Code Generator",
+        "description": "Convert text or URLs into QR codes"
+      },
+      "password": {
+        "title": "Password Generator",
+        "description": "Generate strong and secure passwords"
+      },
+      "text": {
+        "title": "Text Counter",
+        "description": "Count characters, words, and lines in real-time"
+      },
+      "currency": {
+        "title": "Currency Converter",
+        "description": "Calculate exchange rates between various currencies"
+      }
+    }
+  },
+  "bmi": {
+    "title": "BMI Calculator",
+    "subtitle": "Calculate your Body Mass Index to check your health status",
+    "cardTitle": "Enter Calculation Information",
+    "cardDescription": "Enter your height and weight to calculate BMI",
+    "height": "Height (cm)",
+    "weight": "Weight (kg)",
+    "calculate": "Calculate BMI",
+    "result": {
+      "bmi": "BMI",
+      "category": "Category",
+      "underweight": "Underweight",
+      "normal": "Normal",
+      "overweight": "Overweight",
+      "obese1": "Obese Class I",
+      "obese2": "Obese Class II",
+      "obese3": "Obese Class III"
+    },
+    "errors": {
+      "heightRequired": "Please enter your height.",
+      "weightRequired": "Please enter your weight.",
+      "invalidHeight": "Please enter a valid height. (50-300cm)",
+      "invalidWeight": "Please enter a valid weight. (10-500kg)"
+    },
+    "info": {
+      "title": "BMI Calculation Criteria",
+      "underweight": "• Underweight: BMI below 18.5",
+      "normal": "• Normal: BMI 18.5-24.9",
+      "overweight": "• Overweight: BMI 25-29.9",
+      "obese1": "• Obese Class I: BMI 30-34.9",
+      "obese2": "• Obese Class II: BMI 35-39.9",
+      "obese3": "• Obese Class III: BMI 40 or above"
+    }
+  },
+  "age": {
+    "title": "Age Calculator",
+    "subtitle": "Enter your date of birth to calculate your exact age",
+    "cardTitle": "Enter Date of Birth",
+    "cardDescription": "Enter your date of birth to calculate Korean age and international age",
+    "birthDate": "Date of Birth",
+    "calculate": "Calculate Age",
+    "result": {
+      "koreanAge": "Korean Age",
+      "internationalAge": "International Age",
+      "days": "Total Days",
+      "months": "Total Months"
+    },
+    "errors": {
+      "birthDateRequired": "Please enter your date of birth.",
+      "invalidDate": "Please enter a valid date of birth."
+    },
+    "info": {
+      "title": "Age Calculation Criteria",
+      "koreanAge": "• Korean Age: +1 year from birth date",
+      "internationalAge": "• International Age: +1 year after birthday (International Standard)"
+    }
+  },
+  "dday": {
+    "title": "D-Day Calculator",
+    "subtitle": "Calculate the number of days remaining until your target date",
+    "cardTitle": "Enter Target Date",
+    "cardDescription": "Enter anniversaries, exam dates, project deadlines, etc.",
+    "targetDate": "Target Date",
+    "result": {
+      "dday": "D-Day",
+      "daysPast": "{days} days have passed",
+      "daysLeft": "{days} days remaining"
+    },
+    "errors": {
+      "invalidDate": "Please enter a valid date."
+    },
+    "info": {
+      "title": "D-Day Calculation Criteria",
+      "d0": "• D-0: Target date",
+      "d1": "• D-1: One day before target date",
+      "d1Past": "• D+1: One day after target date"
+    }
+  },
+  "percentage": {
+    "title": "Percentage Calculator",
+    "subtitle": "Calculate percentages easily and quickly",
+    "cardTitle": "Percentage Calculation",
+    "cardDescription": "Calculate percentages in various ways",
+    "whatPercent": "What percentage?",
+    "whatPercentDesc": "What percentage is {value} of {total}?",
+    "percentOf": "Calculate percentage value",
+    "percentOfDesc": "What is {percent}% of {value}?",
+    "increase": "Calculate increase",
+    "increaseDesc": "What is {value} increased by {percent}%?",
+    "decrease": "Calculate decrease",
+    "decreaseDesc": "What is {value} decreased by {percent}%?",
+    "value": "Value",
+    "total": "Total",
+    "percent": "Percentage (%)",
+    "result": "Result",
+    "errors": {
+      "valueRequired": "Please enter a value.",
+      "totalRequired": "Please enter the total value.",
+      "percentRequired": "Please enter a percentage.",
+      "invalidValue": "Please enter a valid value.",
+      "invalidPercent": "Percentage must be between 0-100."
+    }
+  },
+  "unit": {
+    "title": "Unit Converter",
+    "subtitle": "Convert various units easily and quickly",
+    "cardTitle": "Unit Conversion",
+    "cardDescription": "Convert length, weight, temperature, volume, etc.",
+    "category": "Category",
+    "from": "Value to Convert",
+    "to": "Converted Result",
+    "fromUnit": "From Unit",
+    "toUnit": "To Unit",
+    "errors": {
+      "valueRequired": "Please enter a value.",
+      "invalidValue": "Please enter a valid number."
+    }
+  },
+  "interest": {
+    "title": "Interest Calculator",
+    "subtitle": "Calculate interest for deposits, savings, and loans",
+    "cardTitle": "Interest Calculation",
+    "cardDescription": "Enter principal, interest rate, and period to calculate interest",
+    "principal": "Principal",
+    "rate": "Interest Rate (%)",
+    "period": "Period (years)",
+    "type": "Interest Type",
+    "simple": "Simple Interest",
+    "compound": "Compound Interest",
+    "calculate": "Calculate Interest",
+    "result": {
+      "interest": "Interest",
+      "total": "Total Amount"
+    },
+    "errors": {
+      "principalRequired": "Please enter the principal.",
+      "rateRequired": "Please enter the interest rate.",
+      "periodRequired": "Please enter the period.",
+      "invalidPrincipal": "Please enter a valid principal.",
+      "invalidRate": "Interest rate must be between 0-100.",
+      "invalidPeriod": "Period must be between 1-100 years."
+    }
+  },
+  "loan": {
+    "title": "Loan Calculator",
+    "subtitle": "Calculate loan repayment amounts",
+    "cardTitle": "Enter Loan Information",
+    "cardDescription": "Enter loan amount, interest rate, and repayment period to calculate monthly payment",
+    "amount": "Loan Amount",
+    "rate": "Annual Interest Rate (%)",
+    "period": "Repayment Period (years)",
+    "calculate": "Calculate Loan",
+    "result": {
+      "monthlyPayment": "Monthly Payment",
+      "totalPayment": "Total Payment",
+      "totalInterest": "Total Interest"
+    },
+    "errors": {
+      "amountRequired": "Please enter the loan amount.",
+      "rateRequired": "Please enter the interest rate.",
+      "periodRequired": "Please enter the repayment period.",
+      "invalidAmount": "Please enter a valid loan amount.",
+      "invalidRate": "Interest rate must be between 0-100.",
+      "invalidPeriod": "Repayment period must be between 1-50 years."
+    }
+  },
+  "color": {
+    "title": "Color Code Converter",
+    "subtitle": "Easily convert HEX, RGB, HSL color codes",
+    "cardTitle": "Color Code Conversion",
+    "cardDescription": "Enter HEX, RGB, or HSL color codes to convert to other formats",
+    "hex": "HEX",
+    "rgb": "RGB",
+    "hsl": "HSL",
+    "preview": "Color Preview",
+    "errors": {
+      "invalidHex": "Please enter a valid HEX color code. (e.g., #FF0000)"
+    }
+  },
+  "qr": {
+    "title": "QR Code Generator",
+    "subtitle": "Convert text or URLs into QR codes",
+    "cardTitle": "QR Code Generation",
+    "cardDescription": "Enter text or URL to generate a QR code",
+    "input": "Text or URL",
+    "generate": "Generate QR Code",
+    "download": "Download",
+    "errors": {
+      "inputRequired": "Please enter text or URL."
+    }
+  },
+  "password": {
+    "title": "Password Generator",
+    "subtitle": "Generate strong and secure passwords",
+    "cardTitle": "Password Generation",
+    "cardDescription": "Generate passwords by selecting desired length and options",
+    "length": "Length",
+    "includeUppercase": "Include Uppercase",
+    "includeLowercase": "Include Lowercase",
+    "includeNumbers": "Include Numbers",
+    "includeSymbols": "Include Symbols",
+    "generate": "Generate Password",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "errors": {
+      "lengthRequired": "Please enter the length.",
+      "invalidLength": "Length must be between 4-128.",
+      "noOptions": "Please select at least one option."
+    }
+  },
+  "text": {
+    "title": "Text Counter",
+    "subtitle": "Count characters, words, and lines in real-time",
+    "cardTitle": "Text Input",
+    "cardDescription": "Enter text to count characters, words, and lines in real-time",
+    "input": "Enter Text",
+    "stats": {
+      "characters": "Characters",
+      "charactersNoSpaces": "Characters (no spaces)",
+      "words": "Words",
+      "lines": "Lines",
+      "bytes": "Bytes"
+    }
+  },
+  "currency": {
+    "title": "Currency Converter",
+    "subtitle": "Calculate exchange rates between various currencies",
+    "cardTitle": "Currency Conversion",
+    "cardDescription": "Convert currencies based on real-time exchange rates",
+    "amount": "Amount",
+    "from": "From Currency",
+    "to": "To Currency",
+    "convert": "Convert Currency",
+    "lastUpdated": "Last Updated",
+    "errors": {
+      "amountRequired": "Please enter an amount.",
+      "invalidAmount": "Please enter a valid amount.",
+      "fetchError": "An error occurred while fetching exchange rate information."
+    }
+  }
+}
+

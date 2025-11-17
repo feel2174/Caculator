@@ -1,0 +1,304 @@
+{
+  "common": {
+    "appName": "계산기 도구 모음",
+    "language": "언어",
+    "korean": "한국어",
+    "english": "English"
+  },
+  "home": {
+    "title": "계산기 도구 모음",
+    "subtitle": "일상생활에 필요한 다양한 계산기와 유틸리티 도구를 한 곳에서 사용하세요",
+    "totalCalculators": "총 {count}개의 계산기 도구를 제공합니다",
+    "calculators": {
+      "bmi": {
+        "title": "BMI 계산기",
+        "description": "체질량지수를 계산하여 건강 상태를 확인하세요"
+      },
+      "age": {
+        "title": "만나이 계산기",
+        "description": "생년월일을 입력하여 정확한 나이를 계산하세요"
+      },
+      "dday": {
+        "title": "D-Day 계산기",
+        "description": "목표 날짜까지 남은 일수를 계산하세요"
+      },
+      "percentage": {
+        "title": "퍼센트 계산기",
+        "description": "퍼센트 계산을 쉽고 빠르게 할 수 있습니다"
+      },
+      "unit": {
+        "title": "단위 변환기",
+        "description": "다양한 단위를 쉽고 빠르게 변환하세요"
+      },
+      "interest": {
+        "title": "이자 계산기",
+        "description": "예금, 적금, 대출의 이자를 계산하세요"
+      },
+      "loan": {
+        "title": "대출 계산기",
+        "description": "대출 상환금을 계산하세요"
+      },
+      "color": {
+        "title": "색상 코드 변환기",
+        "description": "HEX, RGB, HSL 색상 코드를 쉽게 변환하세요"
+      },
+      "qr": {
+        "title": "QR 코드 생성기",
+        "description": "텍스트나 URL을 QR 코드로 변환하세요"
+      },
+      "password": {
+        "title": "비밀번호 생성기",
+        "description": "강력하고 안전한 비밀번호를 생성하세요"
+      },
+      "text": {
+        "title": "텍스트 카운터",
+        "description": "텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 계산하세요"
+      },
+      "currency": {
+        "title": "환율 계산기",
+        "description": "다양한 통화 간 환율을 계산하세요"
+      }
+    }
+  },
+  "bmi": {
+    "title": "BMI 계산기",
+    "subtitle": "체질량지수를 계산하여 건강 상태를 확인하세요",
+    "cardTitle": "계산 정보 입력",
+    "cardDescription": "키와 몸무게를 입력하면 BMI를 계산합니다",
+    "height": "키 (cm)",
+    "weight": "몸무게 (kg)",
+    "calculate": "BMI 계산하기",
+    "result": {
+      "bmi": "BMI",
+      "category": "분류",
+      "underweight": "저체중",
+      "normal": "정상",
+      "overweight": "과체중",
+      "obese1": "비만 1단계",
+      "obese2": "비만 2단계",
+      "obese3": "비만 3단계"
+    },
+    "errors": {
+      "heightRequired": "키를 입력해주세요.",
+      "weightRequired": "몸무게를 입력해주세요.",
+      "invalidHeight": "올바른 키를 입력해주세요. (50-300cm)",
+      "invalidWeight": "올바른 몸무게를 입력해주세요. (10-500kg)"
+    },
+    "info": {
+      "title": "BMI 계산 기준",
+      "underweight": "• 저체중: BMI 18.5 미만",
+      "normal": "• 정상: BMI 18.5-24.9",
+      "overweight": "• 과체중: BMI 25-29.9",
+      "obese1": "• 비만 1단계: BMI 30-34.9",
+      "obese2": "• 비만 2단계: BMI 35-39.9",
+      "obese3": "• 비만 3단계: BMI 40 이상"
+    }
+  },
+  "age": {
+    "title": "만나이 계산기",
+    "subtitle": "생년월일을 입력하여 정확한 나이를 계산하세요",
+    "cardTitle": "생년월일 입력",
+    "cardDescription": "생년월일을 입력하면 한국 나이와 만나이를 계산합니다",
+    "birthDate": "생년월일",
+    "calculate": "나이 계산하기",
+    "result": {
+      "koreanAge": "한국 나이",
+      "internationalAge": "만나이",
+      "days": "총 일수",
+      "months": "총 개월 수"
+    },
+    "errors": {
+      "birthDateRequired": "생년월일을 입력해주세요.",
+      "invalidDate": "올바른 생년월일을 입력해주세요."
+    },
+    "info": {
+      "title": "나이 계산 기준",
+      "koreanAge": "• 한국 나이: 출생일 기준으로 +1세",
+      "internationalAge": "• 만나이: 생일이 지나야 +1세 (국제 표준)"
+    }
+  },
+  "dday": {
+    "title": "D-Day 계산기",
+    "subtitle": "목표 날짜까지 남은 일수를 계산하세요",
+    "cardTitle": "목표 날짜 입력",
+    "cardDescription": "기념일, 시험일, 프로젝트 마감일 등을 입력하세요",
+    "targetDate": "목표 날짜",
+    "result": {
+      "dday": "D-Day",
+      "daysPast": "{days}일이 지났습니다",
+      "daysLeft": "{days}일 남았습니다"
+    },
+    "errors": {
+      "invalidDate": "올바른 날짜를 입력해주세요."
+    },
+    "info": {
+      "title": "D-Day 계산 기준",
+      "d0": "• D-0: 목표 날짜 당일",
+      "d1": "• D-1: 목표 날짜 하루 전",
+      "d1Past": "• D+1: 목표 날짜 하루 후"
+    }
+  },
+  "percentage": {
+    "title": "퍼센트 계산기",
+    "subtitle": "퍼센트 계산을 쉽고 빠르게 할 수 있습니다",
+    "cardTitle": "퍼센트 계산",
+    "cardDescription": "다양한 방식으로 퍼센트를 계산할 수 있습니다",
+    "whatPercent": "몇 퍼센트인가?",
+    "whatPercentDesc": "{value}는 {total}의 몇 퍼센트인가?",
+    "percentOf": "퍼센트 값 계산",
+    "percentOfDesc": "{percent}%의 {value}는 얼마인가?",
+    "increase": "증가율 계산",
+    "increaseDesc": "{value}에서 {percent}% 증가하면?",
+    "decrease": "감소율 계산",
+    "decreaseDesc": "{value}에서 {percent}% 감소하면?",
+    "value": "값",
+    "total": "전체",
+    "percent": "퍼센트 (%)",
+    "result": "결과",
+    "errors": {
+      "valueRequired": "값을 입력해주세요.",
+      "totalRequired": "전체 값을 입력해주세요.",
+      "percentRequired": "퍼센트를 입력해주세요.",
+      "invalidValue": "올바른 값을 입력해주세요.",
+      "invalidPercent": "퍼센트는 0-100 사이의 값이어야 합니다."
+    }
+  },
+  "unit": {
+    "title": "단위 변환기",
+    "subtitle": "다양한 단위를 쉽고 빠르게 변환하세요",
+    "cardTitle": "단위 변환",
+    "cardDescription": "길이, 무게, 온도, 부피 등을 변환할 수 있습니다",
+    "category": "카테고리",
+    "from": "변환할 값",
+    "to": "변환 결과",
+    "fromUnit": "변환 전 단위",
+    "toUnit": "변환 후 단위",
+    "errors": {
+      "valueRequired": "값을 입력해주세요.",
+      "invalidValue": "올바른 숫자를 입력해주세요."
+    }
+  },
+  "interest": {
+    "title": "이자 계산기",
+    "subtitle": "예금, 적금, 대출의 이자를 계산하세요",
+    "cardTitle": "이자 계산",
+    "cardDescription": "원금, 이자율, 기간을 입력하면 이자를 계산합니다",
+    "principal": "원금",
+    "rate": "이자율 (%)",
+    "period": "기간 (년)",
+    "type": "이자 유형",
+    "simple": "단리",
+    "compound": "복리",
+    "calculate": "이자 계산하기",
+    "result": {
+      "interest": "이자",
+      "total": "원리금 합계"
+    },
+    "errors": {
+      "principalRequired": "원금을 입력해주세요.",
+      "rateRequired": "이자율을 입력해주세요.",
+      "periodRequired": "기간을 입력해주세요.",
+      "invalidPrincipal": "올바른 원금을 입력해주세요.",
+      "invalidRate": "이자율은 0-100 사이의 값이어야 합니다.",
+      "invalidPeriod": "기간은 1-100년 사이의 값이어야 합니다."
+    }
+  },
+  "loan": {
+    "title": "대출 계산기",
+    "subtitle": "대출 상환금을 계산하세요",
+    "cardTitle": "대출 정보 입력",
+    "cardDescription": "대출 금액, 이자율, 상환 기간을 입력하면 월 상환금을 계산합니다",
+    "amount": "대출 금액",
+    "rate": "연 이자율 (%)",
+    "period": "상환 기간 (년)",
+    "calculate": "대출 계산하기",
+    "result": {
+      "monthlyPayment": "월 상환금",
+      "totalPayment": "총 상환금",
+      "totalInterest": "총 이자"
+    },
+    "errors": {
+      "amountRequired": "대출 금액을 입력해주세요.",
+      "rateRequired": "이자율을 입력해주세요.",
+      "periodRequired": "상환 기간을 입력해주세요.",
+      "invalidAmount": "올바른 대출 금액을 입력해주세요.",
+      "invalidRate": "이자율은 0-100 사이의 값이어야 합니다.",
+      "invalidPeriod": "상환 기간은 1-50년 사이의 값이어야 합니다."
+    }
+  },
+  "color": {
+    "title": "색상 코드 변환기",
+    "subtitle": "HEX, RGB, HSL 색상 코드를 쉽게 변환하세요",
+    "cardTitle": "색상 코드 변환",
+    "cardDescription": "HEX, RGB, HSL 형식의 색상 코드를 입력하면 다른 형식으로 변환합니다",
+    "hex": "HEX",
+    "rgb": "RGB",
+    "hsl": "HSL",
+    "preview": "색상 미리보기",
+    "errors": {
+      "invalidHex": "올바른 HEX 색상 코드를 입력해주세요. (예: #FF0000)"
+    }
+  },
+  "qr": {
+    "title": "QR 코드 생성기",
+    "subtitle": "텍스트나 URL을 QR 코드로 변환하세요",
+    "cardTitle": "QR 코드 생성",
+    "cardDescription": "텍스트나 URL을 입력하면 QR 코드를 생성합니다",
+    "input": "텍스트 또는 URL",
+    "generate": "QR 코드 생성",
+    "download": "다운로드",
+    "errors": {
+      "inputRequired": "텍스트나 URL을 입력해주세요."
+    }
+  },
+  "password": {
+    "title": "비밀번호 생성기",
+    "subtitle": "강력하고 안전한 비밀번호를 생성하세요",
+    "cardTitle": "비밀번호 생성",
+    "cardDescription": "원하는 길이와 옵션을 선택하여 비밀번호를 생성합니다",
+    "length": "길이",
+    "includeUppercase": "대문자 포함",
+    "includeLowercase": "소문자 포함",
+    "includeNumbers": "숫자 포함",
+    "includeSymbols": "특수문자 포함",
+    "generate": "비밀번호 생성",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "errors": {
+      "lengthRequired": "길이를 입력해주세요.",
+      "invalidLength": "길이는 4-128 사이의 값이어야 합니다.",
+      "noOptions": "최소 하나의 옵션을 선택해주세요."
+    }
+  },
+  "text": {
+    "title": "텍스트 카운터",
+    "subtitle": "텍스트의 글자 수, 단어 수, 줄 수를 실시간으로 계산하세요",
+    "cardTitle": "텍스트 입력",
+    "cardDescription": "텍스트를 입력하면 글자 수, 단어 수, 줄 수를 실시간으로 계산합니다",
+    "input": "텍스트 입력",
+    "stats": {
+      "characters": "글자 수",
+      "charactersNoSpaces": "공백 제외 글자 수",
+      "words": "단어 수",
+      "lines": "줄 수",
+      "bytes": "바이트"
+    }
+  },
+  "currency": {
+    "title": "환율 계산기",
+    "subtitle": "다양한 통화 간 환율을 계산하세요",
+    "cardTitle": "환율 변환",
+    "cardDescription": "실시간 환율을 기반으로 통화를 변환합니다",
+    "amount": "금액",
+    "from": "변환 전 통화",
+    "to": "변환 후 통화",
+    "convert": "환율 변환",
+    "lastUpdated": "마지막 업데이트",
+    "errors": {
+      "amountRequired": "금액을 입력해주세요.",
+      "invalidAmount": "올바른 금액을 입력해주세요.",
+      "fetchError": "환율 정보를 가져오는 중 오류가 발생했습니다."
+    }
+  }
+}
+
