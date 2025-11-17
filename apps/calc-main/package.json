@@ -12,6 +12,7 @@
     "@cal/seo": "workspace:*",
     "@cal/ui": "workspace:*",
     "@cal/utils": "workspace:*",
+    "@vercel/analytics": "^1.5.0",
     "next": "^15.0.0",
     "next-intl": "^4.5.3",
     "qrcode": "^1.5.3",

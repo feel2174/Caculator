@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 import { generateMetadata as generateSEOMetadata } from "@cal/seo";
 import { locales, type Locale } from "../../i18n";
@@ -97,6 +98,7 @@ export default async function RootLayout({
           <Navigation locale={locale as Locale} />
           {children}
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
