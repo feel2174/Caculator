@@ -6,6 +6,7 @@ const baseUrl = "https://calc.zucca100.com";
 const calculatorPaths = [
   "bmi",
   "age",
+  "expect_age",
   "dday",
   "percentage",
   "unit",

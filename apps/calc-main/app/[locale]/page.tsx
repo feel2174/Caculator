@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/
 const calculatorIds = [
   "bmi",
   "age",
+  "expect_age",
   "dday",
   "percentage",
   "unit",
@@ -20,6 +21,7 @@ const calculatorIds = [
 const icons = {
   bmi: "📊",
   age: "🎂",
+  expect_age: "⏳",
   dday: "📅",
   percentage: "📈",
   unit: "🔄",
@@ -35,6 +37,7 @@ const icons = {
 const colors = {
   bmi: "from-blue-50 to-indigo-100",
   age: "from-purple-50 to-pink-100",
+  expect_age: "from-emerald-50 to-green-100",
   dday: "from-orange-50 to-red-100",
   percentage: "from-green-50 to-emerald-100",
   unit: "from-cyan-50 to-blue-100",

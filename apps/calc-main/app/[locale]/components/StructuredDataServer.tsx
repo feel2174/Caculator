@@ -1,5 +1,5 @@
 interface StructuredDataProps {
-  type: "WebSite" | "WebPage" | "BreadcrumbList";
+  type: "WebSite" | "WebPage" | "BreadcrumbList" | "FAQPage" | "SoftwareApplication";
   data?: Record<string, any>;
   pathname?: string;
 }
@@ -49,6 +49,40 @@ export function StructuredDataServer({ type, data, pathname }: StructuredDataPro
           "@type": "BreadcrumbList",
           itemListElement: data?.items || [],
         };
+
+      case "FAQPage":
+        return {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: data?.questions || [],
+        };
+
+      case "SoftwareApplication": {
+        const appData: any = {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: data?.name || "계산기 도구",
+          description: data?.description || "다양한 계산기 도구를 제공합니다",
+          url: pathname ? `${baseUrl}${pathname}` : baseUrl,
+          applicationCategory: "UtilityApplication",
+          operatingSystem: "Any",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "KRW",
+          },
+        };
+
+        if (data?.rating) {
+          appData.aggregateRating = {
+            "@type": "AggregateRating",
+            ratingValue: data.rating.value,
+            ratingCount: data.rating.count,
+          };
+        }
+
+        return appData;
+      }
 
       default:
         return null;

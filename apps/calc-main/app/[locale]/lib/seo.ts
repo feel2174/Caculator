@@ -18,15 +18,23 @@ export async function getPageSEO(
     return typeof value === "string" ? value : key;
   };
 
+  // 추가 키워드가 있는 경우 사용
+  const additionalKeywords = t(`${titleKey.split(".")[0]}.seoKeywords`);
+  const baseKeywords = [
+    t(titleKey),
+    "calculator",
+    "zucca100",
+    ...t(descriptionKey).split(" ").slice(0, 5),
+  ];
+
+  const keywords = typeof additionalKeywords === "string" && additionalKeywords !== `${titleKey.split(".")[0]}.seoKeywords`
+    ? [...baseKeywords, ...additionalKeywords.split(",").map(k => k.trim())]
+    : baseKeywords;
+
   return {
     title: t(titleKey),
     description: t(descriptionKey),
-    keywords: [
-      t(titleKey),
-      "calculator",
-      "zucca100",
-      ...t(descriptionKey).split(" ").slice(0, 5),
-    ],
+    keywords,
     canonical: `https://calc.zucca100.com/${locale}${path}`,
     url: `https://calc.zucca100.com/${locale}${path}`,
     alternates: {

@@ -18,6 +18,10 @@
         "title": "Age Calculator",
         "description": "Enter your date of birth to calculate your exact age"
       },
+      "expect_age": {
+        "title": "Life Expectancy Calculator",
+        "description": "Calculate your expected lifespan based on personal information and health style"
+      },
       "dday": {
         "title": "D-Day Calculator",
         "description": "Calculate the number of days remaining until your target date"
@@ -298,6 +302,92 @@
       "amountRequired": "Please enter an amount.",
       "invalidAmount": "Please enter a valid amount.",
       "fetchError": "An error occurred while fetching exchange rate information."
+    }
+  },
+  "expectAge": {
+    "title": "Life Expectancy Calculator",
+    "subtitle": "Calculate your expected lifespan based on personal information and health style",
+    "seoDescription": "Calculate your expected lifespan with our free life expectancy calculator. Answer 23 questions about your gender, health habits, and lifestyle to discover your projected lifespan. Compare your results with the Korean average and learn how to improve your health.",
+    "seoKeywords": "life expectancy, lifespan calculator, health calculator, life expectancy test, expected lifespan, longevity calculator, health assessment, life expectancy by age, healthy lifestyle",
+    "personal": {
+      "title": "1) Personal Information",
+      "description": "Please enter your personal information",
+      "q1": "What is your gender?",
+      "q2": "Do you live in an urban area with a population of over 2 million?",
+      "q3": "Do you live in a town with a population of less than 10,000 or in a rural area?",
+      "q4": "Did one grandparent live to be 85 years old?",
+      "q5": "Did all four grandparents (maternal and paternal) live to be 80 years old?",
+      "q6": "Did a parent die of a stroke or heart attack before the age of 50?",
+      "q7": "Do your parents, siblings, or sisters have cancer or heart disease under the age of 50, or diabetes after childhood?",
+      "q8": "Do you earn more than 60 million won per year?",
+      "q9": "Did you graduate from university?",
+      "q10": "Do you have a graduate degree or a professional license?",
+      "q11": "Are you 65 or older and still working?",
+      "q12": "Do you live with a spouse or friend?",
+      "options": {
+        "male": "Male",
+        "female": "Female",
+        "yes": "Yes",
+        "no": "No"
+      }
+    },
+    "health": {
+      "title": "2) Health Style Related Matters",
+      "description": "Please enter your health style and lifestyle habits",
+      "q1": "Do you work at a desk?",
+      "q2": "Does your job require regular, heavy physical labor?",
+      "q3": "Do you exercise continuously for at least 30 minutes five times a week? (e.g., tennis, running, swimming)",
+      "q4": "Do you exercise two or three times a week?",
+      "q5": "Do you sleep more than 10 hours every day?",
+      "q6": "Is your personality emotional, aggressive, and do you get angry easily?",
+      "q7": "Do you think comfortably and easily?",
+      "q8": "Are you happy? Or are you unhappy?",
+      "q9": "Did you get a speeding ticket last year?",
+      "q10": "Are you a woman and do you visit an obstetrician/gynecologist once a year?",
+      "q11": "How much do you smoke?",
+      "options": {
+        "yes": "Yes",
+        "no": "No",
+        "twoPacksOrMore": "More than two packs",
+        "oneToTwoPacks": "One to two packs",
+        "halfToOnePack": "Half to one pack",
+        "noSmoking": "Do not smoke"
+      }
+    },
+    "calculate": "Calculate Life Expectancy",
+    "result": {
+      "label": "Expected Life Expectancy",
+      "unit": " years",
+      "description": "This is your estimated lifespan based on the information you provided",
+      "comments": {
+        "excellent": "🎉 Excellent! Your life expectancy is much higher than average. Maintaining your current healthy lifestyle will allow you to enjoy a longer and healthier life.",
+        "veryGood": "✨ Very good! Your life expectancy is above average. With consistent health management, you can expect an even longer lifespan.",
+        "good": "👍 Good! Your life expectancy is above average. Maintaining regular exercise and a healthy diet can make it even better.",
+        "average": "📊 Average level. There is plenty of room to improve your life expectancy by adopting healthier lifestyle habits.",
+        "belowAverage": "⚠️ Below average level. Paying more attention to health management such as exercise, diet, and stress management can improve your life expectancy.",
+        "needsImprovement": "💪 Needs improvement. Please manage your health through regular health checkups and lifestyle improvements. Even small changes, if consistently maintained, can bring significant improvements."
+      }
+    },
+    "errors": {
+      "allQuestionsRequired": "Please answer all questions."
+    },
+    "info": {
+      "title": "Calculation Criteria",
+      "description": "This calculator estimates your expected lifespan based on personal information and health style. Actual lifespan may vary due to various factors, and this result is for reference only."
+    },
+    "seo": {
+      "faq1": {
+        "question": "Does gender affect life expectancy?",
+        "answer": "Yes, generally women live 3-5 years longer than men on average. This is due to various factors including biological differences and lifestyle patterns."
+      },
+      "faq2": {
+        "question": "How much does exercise affect life expectancy?",
+        "answer": "Regular exercise can significantly improve life expectancy. Exercising at least 30 minutes five times a week can increase your lifespan by an average of 4-5 years."
+      },
+      "faq3": {
+        "question": "What is the impact of smoking on life expectancy?",
+        "answer": "Smoking significantly reduces life expectancy. Smoking more than two packs a day can reduce lifespan by about 10 years, while one pack or more can reduce it by about 7 years. Quitting smoking can reduce these risks."
+      }
     }
   }
 }
