@@ -16,6 +16,8 @@ const calculatorIds = [
   "password",
   "text",
   "currency",
+  "calorie",
+  "salary",
 ] as const;
 
 const icons = {
@@ -32,6 +34,8 @@ const icons = {
   password: "🔐",
   text: "📝",
   currency: "💱",
+  calorie: "🔥",
+  salary: "💵",
 };
 
 const colors = {
@@ -48,6 +52,8 @@ const colors = {
   password: "from-slate-50 to-gray-100",
   text: "from-rose-50 to-pink-100",
   currency: "from-sky-50 to-blue-100",
+  calorie: "from-orange-50 to-red-100",
+  salary: "from-green-50 to-teal-100",
 };
 
 export default async function Home({

@@ -4,17 +4,17 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@cal/ui";
-import { Input } from "@cal/ui";
 import { Label } from "@cal/ui";
 import { Button } from "@cal/ui";
 import { Alert, AlertDescription } from "@cal/ui";
 import { validateDate } from "@cal/utils";
+import { DatePicker } from "../components/DatePicker";
 
 export default function AgeCalculator() {
   const t = useTranslations("age");
   const params = useParams();
   const locale = params.locale as string;
-  const [birthDate, setBirthDate] = useState<string>("");
+  const [birthDate, setBirthDate] = useState<Date | undefined>(undefined);
   const [result, setResult] = useState<{
     koreanAge: number;
     internationalAge: number;
@@ -30,8 +30,7 @@ export default function AgeCalculator() {
       return;
     }
 
-    const birth = new Date(birthDate);
-    const validation = validateDate(birth, t("birthDate"));
+    const validation = validateDate(birthDate, t("birthDate"));
     if (!validation.valid) {
       setError(validation.error || t("errors.invalidDate"));
       setResult(null);
@@ -40,6 +39,7 @@ export default function AgeCalculator() {
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+    const birth = new Date(birthDate);
     birth.setHours(0, 0, 0, 0);
 
     // 한국 나이 (생일과 관계없이 +1)
@@ -98,30 +98,18 @@ export default function AgeCalculator() {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="birthDate">{t("birthDate")}</Label>
-              <label
-                htmlFor="birthDate"
-                className="block cursor-pointer"
-                onClick={(e) => {
-                  const input = document.getElementById("birthDate") as HTMLInputElement;
-                  if (input && e.target === e.currentTarget) {
-                    input.focus();
-                    input.showPicker?.();
-                  }
+              <Label>{t("birthDate")}</Label>
+              <DatePicker
+                date={birthDate}
+                onSelect={(date) => {
+                  setBirthDate(date);
+                  setError(null);
                 }}
-              >
-                <Input
-                  id="birthDate"
-                  type="date"
-                  value={birthDate}
-                  onChange={(e) => {
-                    setBirthDate(e.target.value);
-                    setError(null);
-                  }}
-                  className="text-lg w-full cursor-pointer"
-                  max={new Date().toISOString().split("T")[0]}
-                />
-              </label>
+                placeholder={t("placeholders.birthDate")}
+                maxDate={new Date()}
+                locale={locale as "ko" | "en"}
+                className="text-lg"
+              />
             </div>
 
             <Button

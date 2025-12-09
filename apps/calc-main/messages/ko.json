@@ -5,6 +5,12 @@
     "korean": "한국어",
     "english": "English"
   },
+  "bookmark": {
+    "add": "북마크 추가",
+    "remove": "북마크 제거",
+    "added": "북마크에 추가되었습니다",
+    "removed": "북마크에서 제거되었습니다"
+  },
   "home": {
     "title": "계산기 도구 모음",
     "subtitle": "일상생활에 필요한 다양한 계산기와 유틸리티 도구를 한 곳에서 사용하세요",
@@ -61,6 +67,14 @@
       "currency": {
         "title": "환율 계산기",
         "description": "다양한 통화 간 환율을 계산하세요"
+      },
+      "calorie": {
+        "title": "칼로리 계산기",
+        "description": "하루 필요한 칼로리와 기초대사량을 계산하세요"
+      },
+      "salary": {
+        "title": "급여 계산기",
+        "description": "실수령액과 각종 공제액을 계산하세요"
       }
     }
   },
@@ -104,6 +118,9 @@
     "cardTitle": "생년월일 입력",
     "cardDescription": "생년월일을 입력하면 한국 나이와 만나이를 계산합니다",
     "birthDate": "생년월일",
+    "placeholders": {
+      "birthDate": "생년월일 선택"
+    },
     "calculate": "나이 계산하기",
     "result": {
       "koreanAge": "한국 나이",
@@ -127,6 +144,9 @@
     "cardTitle": "목표 날짜 입력",
     "cardDescription": "기념일, 시험일, 프로젝트 마감일 등을 입력하세요",
     "targetDate": "목표 날짜",
+    "placeholders": {
+      "targetDate": "목표 날짜 선택"
+    },
     "result": {
       "dday": "D-Day",
       "daysPast": "{days}일이 지났습니다",
@@ -296,12 +316,20 @@
     "amount": "금액",
     "from": "변환 전 통화",
     "to": "변환 후 통화",
+    "swap": "화폐 교환",
     "convert": "환율 변환",
     "lastUpdated": "마지막 업데이트",
+    "placeholders": {
+      "amount": "금액 입력"
+    },
     "errors": {
       "amountRequired": "금액을 입력해주세요.",
       "invalidAmount": "올바른 금액을 입력해주세요.",
       "fetchError": "환율 정보를 가져오는 중 오류가 발생했습니다."
+    },
+    "info": {
+      "title": "참고사항",
+      "description": "환율은 실시간으로 업데이트되며, 1시간마다 갱신됩니다. 정확한 환율은 금융기관에서 확인하세요."
     }
   },
   "expectAge": {
@@ -388,6 +416,112 @@
         "question": "흡연이 기대수명에 미치는 영향은?",
         "answer": "흡연은 기대수명을 크게 감소시킵니다. 하루 두 갑 이상 흡연 시 약 10년, 한 갑 이상 흡연 시 약 7년의 수명 감소가 예상됩니다. 금연을 하면 이러한 위험을 줄일 수 있습니다."
       }
+    }
+  },
+  "calorie": {
+    "title": "칼로리 계산기",
+    "subtitle": "하루 필요한 칼로리와 기초대사량을 정확하게 계산하세요",
+    "seoDescription": "무료 칼로리 계산기로 하루 필요한 칼로리, 기초대사량(BMR), 활동대사량(TDEE)을 계산하세요. 성별, 나이, 키, 몸무게, 활동량을 입력하여 다이어트와 건강 관리에 필요한 정확한 칼로리를 알아보세요.",
+    "cardTitle": "칼로리 계산",
+    "cardDescription": "개인 정보를 입력하여 하루 필요한 칼로리를 계산하세요",
+    "gender": "성별",
+    "age": "나이",
+    "height": "키 (cm)",
+    "weight": "몸무게 (kg)",
+    "activityLevel": "활동 수준",
+    "goal": "목표",
+    "calculate": "칼로리 계산하기",
+    "options": {
+      "male": "남자",
+      "female": "여자"
+    },
+    "activityOptions": {
+      "sedentary": "거의 운동 안 함",
+      "light": "가벼운 운동 (주 1-3일)",
+      "moderate": "보통 운동 (주 3-5일)",
+      "active": "적극적인 운동 (주 6-7일)",
+      "veryActive": "매우 적극적인 운동 (하루 2회 이상)"
+    },
+    "goalOptions": {
+      "lose": "감량",
+      "maintain": "유지",
+      "gain": "증량"
+    },
+    "placeholders": {
+      "age": "예: 30",
+      "height": "예: 170",
+      "weight": "예: 70"
+    },
+    "result": {
+      "bmr": "기초대사량 (BMR)",
+      "tdee": "활동대사량 (TDEE)",
+      "goalCalories": "목표 칼로리",
+      "unit": "kcal",
+      "bmrDesc": "하루 동안 아무 활동 없이 소모하는 칼로리",
+      "tdeeDesc": "일상 활동과 운동을 포함한 총 소모 칼로리",
+      "goalDesc": {
+        "lose": "주당 0.5kg 감량을 위한 권장 칼로리",
+        "maintain": "현재 체중 유지를 위한 칼로리",
+        "gain": "주당 0.3kg 증량을 위한 권장 칼로리"
+      }
+    },
+    "errors": {
+      "allFieldsRequired": "모든 항목을 입력해주세요.",
+      "invalidAge": "나이는 1-120 사이의 값이어야 합니다.",
+      "invalidHeight": "키는 50-250cm 사이의 값이어야 합니다.",
+      "invalidWeight": "몸무게는 10-300kg 사이의 값이어야 합니다."
+    },
+    "info": {
+      "title": "칼로리 계산 기준",
+      "bmr": "BMR(기초대사량)은 Mifflin-St Jeor 공식을 사용하여 계산합니다.",
+      "tdee": "TDEE(활동대사량)는 활동 수준에 따라 BMR에 활동 계수를 곱하여 계산합니다.",
+      "note": "이 계산은 참고용이며, 개인차에 따라 실제 값과 차이가 있을 수 있습니다."
+    }
+  },
+  "salary": {
+    "title": "급여 계산기",
+    "subtitle": "실수령액과 각종 공제항목을 자세히 계산하세요",
+    "seoDescription": "무료 급여 계산기로 실수령액을 계산하세요. 월급, 연봉, 부양가족 수를 입력하면 소득세, 4대보험, 지방소득세 등 모든 공제항목을 자세히 계산하여 정확한 실수령액을 확인할 수 있습니다.",
+    "cardTitle": "급여 정보 입력",
+    "cardDescription": "급여 정보를 입력하면 실수령액을 계산합니다",
+    "salaryType": "급여 유형",
+    "monthlySalary": "월급",
+    "annualSalary": "연봉",
+    "dependents": "부양가족 수",
+    "insurance": "4대 보험",
+    "calculate": "급여 계산하기",
+    "salaryTypeOptions": {
+      "monthly": "월급",
+      "annual": "연봉"
+    },
+    "insuranceOptions": {
+      "nationalPension": "국민연금",
+      "healthInsurance": "건강보험",
+      "employmentInsurance": "고용보험"
+    },
+    "placeholders": {
+      "salary": "예: 3000000",
+      "dependents": "예: 1"
+    },
+    "dependentsDesc": "본인을 제외한 부양가족 수를 입력하세요",
+    "result": {
+      "grossSalary": "기본급",
+      "netSalary": "실수령액",
+      "deductions": "공제 내역",
+      "nationalPension": "국민연금",
+      "healthInsurance": "건강보험",
+      "longTermCare": "장기요양보험",
+      "employmentInsurance": "고용보험",
+      "incomeTax": "소득세",
+      "localIncomeTax": "지방소득세",
+      "totalDeduction": "총 공제액"
+    },
+    "errors": {
+      "salaryRequired": "급여를 입력해주세요."
+    },
+    "info": {
+      "title": "계산 기준 안내",
+      "description": "이 계산기는 2024년 기준 세율과 4대보험료율을 적용합니다. 실제 급여와는 차이가 있을 수 있으며, 추가 공제항목(식대, 교통비 등)은 포함되지 않았습니다. 정확한 실수령액은 회계팀에 문의하시기 바랍니다."
     }
   }
 }

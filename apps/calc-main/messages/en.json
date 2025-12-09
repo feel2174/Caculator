@@ -5,6 +5,12 @@
     "korean": "한국어",
     "english": "English"
   },
+  "bookmark": {
+    "add": "Add Bookmark",
+    "remove": "Remove Bookmark",
+    "added": "Added to bookmarks",
+    "removed": "Removed from bookmarks"
+  },
   "home": {
     "title": "Calculator Tools",
     "subtitle": "Use various calculators and utility tools you need in daily life all in one place",
@@ -61,6 +67,14 @@
       "currency": {
         "title": "Currency Converter",
         "description": "Calculate exchange rates between various currencies"
+      },
+      "calorie": {
+        "title": "Calorie Calculator",
+        "description": "Calculate daily calorie needs and basal metabolic rate"
+      },
+      "salary": {
+        "title": "Salary Calculator",
+        "description": "Calculate net salary and deductions"
       }
     }
   },
@@ -104,6 +118,9 @@
     "cardTitle": "Enter Date of Birth",
     "cardDescription": "Enter your date of birth to calculate Korean age and international age",
     "birthDate": "Date of Birth",
+    "placeholders": {
+      "birthDate": "Select date of birth"
+    },
     "calculate": "Calculate Age",
     "result": {
       "koreanAge": "Korean Age",
@@ -127,6 +144,9 @@
     "cardTitle": "Enter Target Date",
     "cardDescription": "Enter anniversaries, exam dates, project deadlines, etc.",
     "targetDate": "Target Date",
+    "placeholders": {
+      "targetDate": "Select target date"
+    },
     "result": {
       "dday": "D-Day",
       "daysPast": "{days} days have passed",
@@ -296,12 +316,20 @@
     "amount": "Amount",
     "from": "From Currency",
     "to": "To Currency",
+    "swap": "Swap Currencies",
     "convert": "Convert Currency",
     "lastUpdated": "Last Updated",
+    "placeholders": {
+      "amount": "Enter amount"
+    },
     "errors": {
       "amountRequired": "Please enter an amount.",
       "invalidAmount": "Please enter a valid amount.",
       "fetchError": "An error occurred while fetching exchange rate information."
+    },
+    "info": {
+      "title": "Note",
+      "description": "Exchange rates are updated in real-time and refreshed every hour. Please check with financial institutions for accurate rates."
     }
   },
   "expectAge": {
@@ -388,6 +416,112 @@
         "question": "What is the impact of smoking on life expectancy?",
         "answer": "Smoking significantly reduces life expectancy. Smoking more than two packs a day can reduce lifespan by about 10 years, while one pack or more can reduce it by about 7 years. Quitting smoking can reduce these risks."
       }
+    }
+  },
+  "calorie": {
+    "title": "Calorie Calculator",
+    "subtitle": "Calculate your daily calorie needs and basal metabolic rate accurately",
+    "seoDescription": "Calculate your daily calorie needs, BMR (Basal Metabolic Rate), and TDEE (Total Daily Energy Expenditure) with our free calorie calculator. Enter your gender, age, height, weight, and activity level to discover the exact calories needed for diet and health management.",
+    "cardTitle": "Calculate Calories",
+    "cardDescription": "Enter your personal information to calculate your daily calorie needs",
+    "gender": "Gender",
+    "age": "Age",
+    "height": "Height (cm)",
+    "weight": "Weight (kg)",
+    "activityLevel": "Activity Level",
+    "goal": "Goal",
+    "calculate": "Calculate Calories",
+    "options": {
+      "male": "Male",
+      "female": "Female"
+    },
+    "activityOptions": {
+      "sedentary": "Little or no exercise",
+      "light": "Light exercise (1-3 days/week)",
+      "moderate": "Moderate exercise (3-5 days/week)",
+      "active": "Active exercise (6-7 days/week)",
+      "veryActive": "Very active exercise (2x per day)"
+    },
+    "goalOptions": {
+      "lose": "Lose",
+      "maintain": "Maintain",
+      "gain": "Gain"
+    },
+    "placeholders": {
+      "age": "e.g., 30",
+      "height": "e.g., 170",
+      "weight": "e.g., 70"
+    },
+    "result": {
+      "bmr": "Basal Metabolic Rate (BMR)",
+      "tdee": "Total Daily Energy Expenditure (TDEE)",
+      "goalCalories": "Target Calories",
+      "unit": "kcal",
+      "bmrDesc": "Calories burned at rest",
+      "tdeeDesc": "Total calories burned including daily activities and exercise",
+      "goalDesc": {
+        "lose": "Recommended calories for 0.5kg weight loss per week",
+        "maintain": "Calories to maintain current weight",
+        "gain": "Recommended calories for 0.3kg weight gain per week"
+      }
+    },
+    "errors": {
+      "allFieldsRequired": "Please fill in all fields.",
+      "invalidAge": "Age must be between 1-120.",
+      "invalidHeight": "Height must be between 50-250cm.",
+      "invalidWeight": "Weight must be between 10-300kg."
+    },
+    "info": {
+      "title": "Calorie Calculation Criteria",
+      "bmr": "BMR (Basal Metabolic Rate) is calculated using the Mifflin-St Jeor equation.",
+      "tdee": "TDEE (Total Daily Energy Expenditure) is calculated by multiplying BMR by activity level factor.",
+      "note": "This calculation is for reference only, and actual values may vary depending on individual differences."
+    }
+  },
+  "salary": {
+    "title": "Salary Calculator",
+    "subtitle": "Calculate your net salary and deductions in detail",
+    "seoDescription": "Calculate your net salary with our free salary calculator. Enter your monthly salary, annual salary, and number of dependents to get detailed calculations of income tax, four major insurances, local income tax, and more to check your accurate net salary.",
+    "cardTitle": "Enter Salary Information",
+    "cardDescription": "Enter your salary information to calculate net salary",
+    "salaryType": "Salary Type",
+    "monthlySalary": "Monthly Salary",
+    "annualSalary": "Annual Salary",
+    "dependents": "Number of Dependents",
+    "insurance": "Four Major Insurances",
+    "calculate": "Calculate Salary",
+    "salaryTypeOptions": {
+      "monthly": "Monthly Salary",
+      "annual": "Annual Salary"
+    },
+    "insuranceOptions": {
+      "nationalPension": "National Pension",
+      "healthInsurance": "Health Insurance",
+      "employmentInsurance": "Employment Insurance"
+    },
+    "placeholders": {
+      "salary": "e.g., 3000000",
+      "dependents": "e.g., 1"
+    },
+    "dependentsDesc": "Enter the number of dependents excluding yourself",
+    "result": {
+      "grossSalary": "Gross Salary",
+      "netSalary": "Net Salary",
+      "deductions": "Deduction Details",
+      "nationalPension": "National Pension",
+      "healthInsurance": "Health Insurance",
+      "longTermCare": "Long-term Care Insurance",
+      "employmentInsurance": "Employment Insurance",
+      "incomeTax": "Income Tax",
+      "localIncomeTax": "Local Income Tax",
+      "totalDeduction": "Total Deductions"
+    },
+    "errors": {
+      "salaryRequired": "Please enter your salary."
+    },
+    "info": {
+      "title": "Calculation Criteria",
+      "description": "This calculator applies 2024 tax rates and four major insurance rates. The actual salary may differ, and additional deductions (meal allowance, transportation costs, etc.) are not included. For accurate net salary, please contact your accounting team."
     }
   }
 }

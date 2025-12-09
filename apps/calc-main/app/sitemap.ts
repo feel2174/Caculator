@@ -17,6 +17,8 @@ const calculatorPaths = [
   "password",
   "text",
   "currency",
+  "calorie",
+  "salary",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

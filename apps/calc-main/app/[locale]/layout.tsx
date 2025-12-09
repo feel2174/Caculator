@@ -11,6 +11,7 @@ import { locales, type Locale } from "../../i18n";
 import { Navigation } from "./components/Navigation";
 import { getPageSEO } from "./lib/seo";
 import { StructuredDataServer } from "./components/StructuredDataServer";
+import { BookmarkButton } from "./components/BookmarkButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -97,6 +98,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Navigation locale={locale as Locale} />
           {children}
+          <BookmarkButton />
         </NextIntlClientProvider>
         <Analytics />
       </body>
