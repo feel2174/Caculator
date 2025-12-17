@@ -29,7 +29,10 @@
 - 메인 페이지: `https://calc.zucca100.com/`
 - BMI 계산기: `https://calc.zucca100.com/bmi`
 - 만나이 계산기: `https://calc.zucca100.com/age`
+- 기대수명 계산기: `https://calc.zucca100.com/expect_age`
 - D-Day 계산기: `https://calc.zucca100.com/dday`
+- 칼로리 계산기: `https://calc.zucca100.com/calorie`
+- 급여 계산기: `https://calc.zucca100.com/salary`
 - 퍼센트 계산기: `https://calc.zucca100.com/percentage`
 - 단위 변환기: `https://calc.zucca100.com/unit`
 - 이자 계산기: `https://calc.zucca100.com/interest`
@@ -107,7 +110,10 @@ pnpm build
   - `calc.zucca100.com/` - 메인 페이지 (모든 계산기 목록)
   - `calc.zucca100.com/bmi` - BMI 계산기
   - `calc.zucca100.com/age` - 만나이 계산기
+  - `calc.zucca100.com/expect_age` - 기대수명 계산기
   - `calc.zucca100.com/dday` - D-Day 계산기
+  - `calc.zucca100.com/calorie` - 칼로리 계산기
+  - `calc.zucca100.com/salary` - 급여 계산기
   - `calc.zucca100.com/percentage` - 퍼센트 계산기
   - `calc.zucca100.com/unit` - 단위 변환기
   - `calc.zucca100.com/interest` - 이자 계산기
@@ -176,6 +182,9 @@ pnpm --filter bmi-calculator build
 - 메인 페이지 (`/`): 전체 계산기 도구 모음에 대한 SEO
 - 각 계산기 페이지 (`/bmi`, `/age` 등): 개별 계산기에 대한 독립적인 SEO
 - 각 페이지는 고유한 메타 태그, Open Graph, Twitter Card를 가집니다
+- 구조화된 데이터 (Schema.org): WebPage, FAQPage, SoftwareApplication, BreadcrumbList
+- Sitemap.xml 자동 생성 (`/sitemap.xml`)
+- Robots.txt 설정 (`/robots.txt`)
 
 ### 독립 앱 SEO
 
@@ -183,11 +192,14 @@ pnpm --filter bmi-calculator build
 
 ## 주요 기능
 
-- ✅ 12가지 다양한 계산기 및 유틸리티 도구
+- ✅ 15가지 다양한 계산기 및 유틸리티 도구
 - ✅ 통합 관리 가능한 메인 앱
+- ✅ 다국어 지원 (한국어/영어)
 - ✅ 반응형 디자인 (모바일/태블릿/데스크톱)
 - ✅ 실시간 환율 API 연동
 - ✅ 입력 검증 및 에러 처리
-- ✅ SEO 최적화
+- ✅ SEO 최적화 (구조화된 데이터, sitemap, robots.txt)
+- ✅ 북마크 기능 (로컬 스토리지 기반)
+- ✅ 모던한 DatePicker 컴포넌트 (react-day-picker)
 - ✅ 공통 UI 컴포넌트 재사용
 - ✅ 타입 안전성 (TypeScript)

@@ -35,6 +35,11 @@ export async function generateMetadata({
     return typeof value === "string" ? value : key;
   };
 
+  // locale에 따라 다른 OG 이미지 설정 (default: 영문)
+  const ogImage = locale === "ko" 
+    ? "https://calc.zucca100.com/og-image-ko.png"
+    : "https://calc.zucca100.com/og-image.png";
+
   const seoConfig = {
     title: t("common.appName"),
     description: t("home.subtitle"),
@@ -49,6 +54,32 @@ export async function generateMetadata({
     ],
     canonical: `https://calc.zucca100.com/${locale}`,
     url: `https://calc.zucca100.com/${locale}`,
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
+    },
+    openGraph: {
+      title: t("common.appName"),
+      description: t("home.subtitle"),
+      url: `https://calc.zucca100.com/${locale}`,
+      siteName: "zucca100 계산기",
+      locale: locale,
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: t("common.appName"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("common.appName"),
+      description: t("home.subtitle"),
+      images: [ogImage],
+    },
     alternates: {
       languages: {
         ko: "https://calc.zucca100.com/ko",

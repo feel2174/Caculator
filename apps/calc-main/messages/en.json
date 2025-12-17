@@ -110,11 +110,26 @@
       "obese1": "• Obese Class I: BMI 30-34.9",
       "obese2": "• Obese Class II: BMI 35-39.9",
       "obese3": "• Obese Class III: BMI 40 or above"
+    },
+    "seo": {
+      "faq1": {
+        "question": "What is BMI?",
+        "answer": "BMI (Body Mass Index) is a measure of body fat based on height and weight. It is calculated by dividing weight (kg) by the square of height (m)."
+      },
+      "faq2": {
+        "question": "What is a normal BMI range?",
+        "answer": "A normal BMI range is between 18.5 and 24.9. Values outside this range are classified as underweight, overweight, or obese."
+      },
+      "faq3": {
+        "question": "Is BMI calculation accurate?",
+        "answer": "BMI is a general indicator of body fat, but it does not consider muscle mass or body type, so it should be used as a reference only. For accurate health status, please consult with a doctor."
+      }
     }
   },
   "age": {
     "title": "Age Calculator",
     "subtitle": "Enter your date of birth to calculate your exact age",
+    "seoDescription": "Calculate your exact age with our free age calculator. Enter your date of birth to automatically calculate both Korean age and international age. Also check total days and months lived, useful for birthdays, anniversaries, and event planning.",
     "cardTitle": "Enter Date of Birth",
     "cardDescription": "Enter your date of birth to calculate Korean age and international age",
     "birthDate": "Date of Birth",
@@ -136,11 +151,26 @@
       "title": "Age Calculation Criteria",
       "koreanAge": "• Korean Age: +1 year from birth date",
       "internationalAge": "• International Age: +1 year after birthday (International Standard)"
+    },
+    "seo": {
+      "faq1": {
+        "question": "What is the difference between Korean age and international age?",
+        "answer": "Korean age adds one year at birth and another year every January 1st. International age adds one year only after each birthday, which is the international standard."
+      },
+      "faq2": {
+        "question": "How is international age calculated?",
+        "answer": "International age is calculated based on the exact number of years from your birth date to the current date. If your birthday hasn't passed yet this year, you haven't added that year yet."
+      },
+      "faq3": {
+        "question": "What are total days and months?",
+        "answer": "Total days shows the number of days from birth to today, and total months shows the number of months. This is useful for birthday celebrations, anniversaries, and event planning."
+      }
     }
   },
   "dday": {
     "title": "D-Day Calculator",
     "subtitle": "Calculate the number of days remaining until your target date",
+    "seoDescription": "Calculate the exact number of days remaining until your target date with our free D-Day calculator. Easily check how many days are left until anniversaries, exam dates, project deadlines, weddings, trips, and other important dates. Past dates can also be calculated.",
     "cardTitle": "Enter Target Date",
     "cardDescription": "Enter anniversaries, exam dates, project deadlines, etc.",
     "targetDate": "Target Date",
@@ -160,11 +190,26 @@
       "d0": "• D-0: Target date",
       "d1": "• D-1: One day before target date",
       "d1Past": "• D+1: One day after target date"
+    },
+    "seo": {
+      "faq1": {
+        "question": "What is a D-Day calculator?",
+        "answer": "A D-Day calculator is a tool that calculates the number of days remaining until a target date. You can easily check how many days are left until anniversaries, exam dates, project deadlines, weddings, trips, and other important dates."
+      },
+      "faq2": {
+        "question": "Can I calculate past dates?",
+        "answer": "Yes, you can calculate past dates. If the target date is in the past, it will show how many days have passed in D+ format."
+      },
+      "faq3": {
+        "question": "How is D-Day calculated?",
+        "answer": "D-Day is calculated by subtracting the current date from the target date. D-0 means the target date itself, D-1 means one day before, and D+1 means one day after."
+      }
     }
   },
   "percentage": {
     "title": "Percentage Calculator",
     "subtitle": "Calculate percentages easily and quickly",
+    "seoDescription": "Calculate various percentages easily and quickly with our free percentage calculator. Calculate what percentage, percentage values, increase rates, decrease rates, and all percentage-related calculations in one place. Use it for discounts, tax rates, growth rates, and other percentage calculations needed in daily life.",
     "cardTitle": "Percentage Calculation",
     "cardDescription": "Calculate percentages in various ways",
     "whatPercent": "What percentage?",
@@ -185,6 +230,20 @@
       "percentRequired": "Please enter a percentage.",
       "invalidValue": "Please enter a valid value.",
       "invalidPercent": "Percentage must be between 0-100."
+    },
+    "seo": {
+      "faq1": {
+        "question": "What features does the percentage calculator provide?",
+        "answer": "The percentage calculator can perform various percentage-related calculations including calculating what percentage, percentage values, increase rates, and decrease rates all in one place."
+      },
+      "faq2": {
+        "question": "How do I calculate discount rates?",
+        "answer": "You can use the decrease rate calculation feature. Enter the original price and discounted price to calculate the discount rate."
+      },
+      "faq3": {
+        "question": "Can I calculate tax rates or growth rates?",
+        "answer": "Yes, the percentage calculator supports all percentage calculations needed in daily life, including tax rates, growth rates, and discount rates."
+      }
     }
   },
   "unit": {
@@ -205,6 +264,7 @@
   "interest": {
     "title": "Interest Calculator",
     "subtitle": "Calculate interest for deposits, savings, and loans",
+    "seoDescription": "Calculate interest for deposits, savings, and loans accurately with our free interest calculator. Enter principal, interest rate, and period to automatically calculate simple and compound interest. Useful tool for comparing deposit products, calculating savings returns, and checking loan interest for financial planning.",
     "cardTitle": "Interest Calculation",
     "cardDescription": "Enter principal, interest rate, and period to calculate interest",
     "principal": "Principal",
@@ -225,6 +285,20 @@
       "invalidPrincipal": "Please enter a valid principal.",
       "invalidRate": "Interest rate must be between 0-100.",
       "invalidPeriod": "Period must be between 1-100 years."
+    },
+    "seo": {
+      "faq1": {
+        "question": "What is the difference between simple and compound interest?",
+        "answer": "Simple interest is calculated only on the principal amount, while compound interest is calculated on both the principal and accumulated interest. Compound interest yields more interest over time."
+      },
+      "faq2": {
+        "question": "What is the interest calculator used for?",
+        "answer": "The interest calculator is useful for comparing deposit products, calculating savings returns, and checking loan interest when planning finances. Enter principal, interest rate, and period to automatically calculate simple and compound interest."
+      },
+      "faq3": {
+        "question": "How do I enter the interest rate?",
+        "answer": "Enter the annual interest rate as a percentage (%). For example, for a 3% annual interest rate, enter 3."
+      }
     }
   },
   "loan": {
@@ -253,6 +327,7 @@
   "color": {
     "title": "Color Code Converter",
     "subtitle": "Easily convert HEX, RGB, HSL color codes",
+    "seoDescription": "Easily convert HEX, RGB, and HSL color codes with our free color code converter. Convert color codes needed for web development and design work all at once. Preview colors to see conversion results immediately and use them directly in CSS, HTML, and design tools.",
     "cardTitle": "Color Code Conversion",
     "cardDescription": "Enter HEX, RGB, or HSL color codes to convert to other formats",
     "hex": "HEX",
@@ -261,11 +336,26 @@
     "preview": "Color Preview",
     "errors": {
       "invalidHex": "Please enter a valid HEX color code. (e.g., #FF0000)"
+    },
+    "seo": {
+      "faq1": {
+        "question": "What features does the color code converter provide?",
+        "answer": "The color code converter is a tool that easily converts HEX, RGB, and HSL color codes. You can convert color codes needed for web development and design work all at once."
+      },
+      "faq2": {
+        "question": "What is a HEX color code?",
+        "answer": "A HEX color code is a color code expressed in hexadecimal, most commonly used in web development. It is expressed in #RRGGBB format, for example, #FF0000 represents red."
+      },
+      "faq3": {
+        "question": "What is the difference between RGB and HSL?",
+        "answer": "RGB expresses colors as a combination of Red, Green, and Blue, while HSL expresses colors as Hue, Saturation, and Lightness. HSL is more intuitive for color adjustments."
+      }
     }
   },
   "qr": {
     "title": "QR Code Generator",
     "subtitle": "Convert text or URLs into QR codes",
+    "seoDescription": "Instantly convert text or URLs into QR codes with our free QR code generator. Create QR codes for website links, contact information, Wi-Fi passwords, event details, and more for easy sharing. Download generated QR codes to use on business cards, posters, websites, and more.",
     "cardTitle": "QR Code Generation",
     "cardDescription": "Enter text or URL to generate a QR code",
     "input": "Text or URL",
@@ -273,11 +363,26 @@
     "download": "Download",
     "errors": {
       "inputRequired": "Please enter text or URL."
+    },
+    "seo": {
+      "faq1": {
+        "question": "What is a QR code generator?",
+        "answer": "A QR code generator is a tool that instantly converts text or URLs into QR codes. You can create QR codes for website links, contact information, Wi-Fi passwords, event details, and more for easy sharing."
+      },
+      "faq2": {
+        "question": "How do I use the generated QR code?",
+        "answer": "You can download the generated QR code and use it on business cards, posters, websites, and more. Scanning it with a smartphone camera allows immediate access to the stored information."
+      },
+      "faq3": {
+        "question": "What information can I store in a QR code?",
+        "answer": "QR codes can store various information including text, URLs, contact information, Wi-Fi passwords, email addresses, and more. They can store up to 4,296 characters."
+      }
     }
   },
   "password": {
     "title": "Password Generator",
     "subtitle": "Generate strong and secure passwords",
+    "seoDescription": "Generate strong and secure passwords with our free password generator. Select your desired length and options (uppercase, lowercase, numbers, symbols) to create enhanced security passwords. Use for online accounts, Wi-Fi passwords, encryption keys, and various other purposes.",
     "cardTitle": "Password Generation",
     "cardDescription": "Generate passwords by selecting desired length and options",
     "length": "Length",
@@ -292,6 +397,20 @@
       "lengthRequired": "Please enter the length.",
       "invalidLength": "Length must be between 4-128.",
       "noOptions": "Please select at least one option."
+    },
+    "seo": {
+      "faq1": {
+        "question": "How do I use the password generator?",
+        "answer": "The password generator is a tool that creates secure passwords by selecting desired length and options (uppercase, lowercase, numbers, symbols). It can be used for online accounts, Wi-Fi passwords, encryption keys, and various other purposes."
+      },
+      "faq2": {
+        "question": "How can I create a secure password?",
+        "answer": "A secure password should be at least 12 characters long and include uppercase, lowercase, numbers, and symbols. Using a password generator makes it easy to create strong passwords that meet these conditions."
+      },
+      "faq3": {
+        "question": "Are generated passwords secure?",
+        "answer": "Yes, the password generator uses cryptographically secure random number generation algorithms. Generated passwords are not sent to any server and are generated only in your browser."
+      }
     }
   },
   "text": {
@@ -311,6 +430,7 @@
   "currency": {
     "title": "Currency Converter",
     "subtitle": "Calculate exchange rates between various currencies",
+    "seoDescription": "Calculate exchange rates between various currencies in real-time with our free currency converter. Check exchange rates for major currencies like USD, EUR, JPY, CNY, GBP and convert amounts. Useful tool for overseas travel, international shopping, and currency exchange planning. Exchange rates are automatically updated every hour.",
     "cardTitle": "Currency Conversion",
     "cardDescription": "Convert currencies based on real-time exchange rates",
     "amount": "Amount",
@@ -330,6 +450,20 @@
     "info": {
       "title": "Note",
       "description": "Exchange rates are updated in real-time and refreshed every hour. Please check with financial institutions for accurate rates."
+    },
+    "seo": {
+      "faq1": {
+        "question": "What currencies does the currency converter support?",
+        "answer": "The currency converter supports exchange rates for major currencies like USD, EUR, JPY, CNY, GBP. You can convert amounts based on real-time exchange rates, useful for overseas travel, international shopping, and currency exchange planning."
+      },
+      "faq2": {
+        "question": "How often are exchange rates updated?",
+        "answer": "Exchange rates are updated in real-time and automatically refreshed every hour. For accurate rates, please check with financial institutions."
+      },
+      "faq3": {
+        "question": "How do I calculate exchange rates?",
+        "answer": "Select the amount to convert and the currencies (from and to), and it will automatically calculate based on real-time exchange rates. You can easily swap currencies using the swap button."
+      }
     }
   },
   "expectAge": {

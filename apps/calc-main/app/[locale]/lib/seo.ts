@@ -31,12 +31,57 @@ export async function getPageSEO(
     ? [...baseKeywords, ...additionalKeywords.split(",").map(k => k.trim())]
     : baseKeywords;
 
+  const baseTitle = t(titleKey);
+  
+  // seoDescription이 있으면 우선 사용, 없으면 기본 descriptionKey 사용
+  const pageKey = titleKey.split(".")[0];
+  const seoDescriptionKey = `${pageKey}.seoDescription`;
+  const seoDescription = t(seoDescriptionKey);
+  const defaultDescription = t(descriptionKey);
+  
+  // seoDescription이 실제로 존재하는지 확인 (키가 아닌 값인지)
+  const description = seoDescription !== seoDescriptionKey 
+    ? seoDescription 
+    : defaultDescription;
+  
+  // 제목이 너무 짧은 경우 설명과 브랜드명을 추가하여 SEO 최적화
+  const fullTitle = baseTitle.length < 30 
+    ? `${baseTitle} - ${defaultDescription} | zucca100`
+    : `${baseTitle} | zucca100`;
+
+  // locale에 따라 다른 OG 이미지 설정 (default: 영문)
+  const ogImage = locale === "ko" 
+    ? "https://calc.zucca100.com/og-image-ko.png"
+    : "https://calc.zucca100.com/og-image.png";
+
   return {
-    title: t(titleKey),
-    description: t(descriptionKey),
+    title: fullTitle,
+    description: description,
     keywords,
     canonical: `https://calc.zucca100.com/${locale}${path}`,
     url: `https://calc.zucca100.com/${locale}${path}`,
+    openGraph: {
+      title: fullTitle,
+      description: description,
+      url: `https://calc.zucca100.com/${locale}${path}`,
+      siteName: "zucca100 계산기",
+      locale: locale,
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: fullTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description: description,
+      images: [ogImage],
+    },
     alternates: {
       languages: {
         ko: `https://calc.zucca100.com/ko${path}`,
