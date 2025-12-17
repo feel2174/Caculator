@@ -60,28 +60,7 @@ export async function getPageSEO(
     keywords,
     canonical: `https://calc.zucca100.com/${locale}${path}`,
     url: `https://calc.zucca100.com/${locale}${path}`,
-    openGraph: {
-      title: fullTitle,
-      description: description,
-      url: `https://calc.zucca100.com/${locale}${path}`,
-      siteName: "zucca100 계산기",
-      locale: locale,
-      type: "website",
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: fullTitle,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: fullTitle,
-      description: description,
-      images: [ogImage],
-    },
+    ogImage: ogImage,
     alternates: {
       languages: {
         ko: `https://calc.zucca100.com/ko${path}`,

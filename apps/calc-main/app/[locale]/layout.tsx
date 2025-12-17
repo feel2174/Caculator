@@ -54,32 +54,7 @@ export async function generateMetadata({
     ],
     canonical: `https://calc.zucca100.com/${locale}`,
     url: `https://calc.zucca100.com/${locale}`,
-    icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon.ico",
-    },
-    openGraph: {
-      title: t("common.appName"),
-      description: t("home.subtitle"),
-      url: `https://calc.zucca100.com/${locale}`,
-      siteName: "zucca100 계산기",
-      locale: locale,
-      type: "website",
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: t("common.appName"),
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: t("common.appName"),
-      description: t("home.subtitle"),
-      images: [ogImage],
-    },
+    ogImage: ogImage,
     alternates: {
       languages: {
         ko: "https://calc.zucca100.com/ko",
@@ -89,7 +64,21 @@ export async function generateMetadata({
     },
   };
 
-  return generateSEOMetadata(seoConfig);
+  const metadata = generateSEOMetadata(seoConfig);
+
+  // icons와 locale을 추가로 설정
+  return {
+    ...metadata,
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
+    },
+    openGraph: {
+      ...metadata.openGraph,
+      locale: locale === "ko" ? "ko_KR" : "en_US",
+      siteName: "zucca100 계산기",
+    },
+  };
 }
 
 export default async function RootLayout({
