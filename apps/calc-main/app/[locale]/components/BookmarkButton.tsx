@@ -9,11 +9,14 @@ import { cn } from "@cal/ui";
 export function BookmarkButton() {
   const t = useTranslations("bookmark");
   const pathname = usePathname();
+  // 초기 상태를 false로 설정하여 첫 렌더링 시 레이아웃 시프트 방지
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // 페이지 로드 시 북마크 상태 확인
+    setIsMounted(true);
+    // 클라이언트 사이드에서만 북마크 상태 확인 (hydration 후)
     const bookmarks = getBookmarks();
     const currentUrl = pathname;
     setIsBookmarked(bookmarks.includes(currentUrl));
@@ -49,6 +52,22 @@ export function BookmarkButton() {
       setTimeout(() => setShowToast(false), 2000);
     }
   };
+
+  // SSR 중에는 렌더링하지 않아 CLS 방지
+  if (!isMounted) {
+    return (
+      <button
+        className={cn(
+          "fixed bottom-6 right-6 z-50",
+          "w-14 h-14 rounded-full shadow-lg",
+          "flex items-center justify-center",
+          "bg-white border-2 border-gray-300"
+        )}
+        aria-hidden="true"
+        disabled
+      />
+    );
+  }
 
   return (
     <>
@@ -99,6 +118,7 @@ export function BookmarkButton() {
     </>
   );
 }
+
 
 
 

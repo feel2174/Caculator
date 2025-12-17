@@ -23,18 +23,34 @@ export function AdSense({
     }
   }, []);
 
+  // 광고 영역의 최소 높이를 설정하여 CLS 방지
+  const minHeight = adFormat === "vertical" ? 600 : adFormat === "horizontal" ? 100 : 250;
+
   return (
-    <ins
-      className="adsbygoogle"
+    <div 
+      className="adsense-container"
       style={{
-        display: "block",
+        minHeight: `${minHeight}px`,
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#f9fafb",
         ...style,
       }}
-      data-ad-client="ca-pub-9196149361612087"
-      {...(adSlot && { "data-ad-slot": adSlot })}
-      data-ad-format={adFormat}
-      data-full-width-responsive={fullWidthResponsive ? "true" : "false"}
-    />
+    >
+      <ins
+        className="adsbygoogle"
+        style={{
+          display: "block",
+          width: "100%",
+        }}
+        data-ad-client="ca-pub-9196149361612087"
+        {...(adSlot && { "data-ad-slot": adSlot })}
+        data-ad-format={adFormat}
+        data-full-width-responsive={fullWidthResponsive ? "true" : "false"}
+      />
+    </div>
   );
 }
 

@@ -121,24 +121,27 @@ export default function BMICalculator() {
               BMI 계산하기
             </Button>
 
-            {bmi !== null && (
-              <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-2 border-blue-200">
-                <div className="text-center space-y-4">
-                  <div>
-                    <p className="text-sm text-gray-600 mb-2">BMI 수치</p>
-                    <p className="text-5xl font-bold text-blue-600">
-                      {formatNumber(bmi, { decimals: 1 })}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-600 mb-2">건강 상태</p>
-                    <p className={`text-3xl font-bold ${getCategoryColor()}`}>
-                      {category}
-                    </p>
+            {/* 결과 영역 - 고정 높이로 CLS 방지 */}
+            <div className="min-h-[200px] flex items-center justify-center">
+              {bmi !== null && (
+                <div className="mt-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-2 border-blue-200 w-full">
+                  <div className="text-center space-y-4">
+                    <div>
+                      <p className="text-sm text-gray-600 mb-2">BMI 수치</p>
+                      <p className="text-5xl font-bold text-blue-600">
+                        {formatNumber(bmi, { decimals: 1 })}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-600 mb-2">건강 상태</p>
+                      <p className={`text-3xl font-bold ${getCategoryColor()}`}>
+                        {category}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
 
             <div className="mt-6 p-4 bg-gray-50 rounded-lg">
               <h3 className="font-semibold mb-2">BMI 기준표</h3>

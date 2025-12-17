@@ -13,7 +13,12 @@ import { getPageSEO } from "./lib/seo";
 import { StructuredDataServer } from "./components/StructuredDataServer";
 import { BookmarkButton } from "./components/BookmarkButton";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-inter",
+});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));

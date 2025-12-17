@@ -143,13 +143,15 @@ export default function CurrencyConverter() {
             <CardDescription>{t("cardDescription")}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            {isLoading ? (
-              <div className="space-y-4">
-                <Skeleton className="h-10 w-full" />
-                <Skeleton className="h-10 w-full" />
-                <Skeleton className="h-10 w-full" />
-              </div>
-            ) : (
+            {/* 고정 높이로 CLS 방지 */}
+            <div className="min-h-[500px]">
+              {isLoading ? (
+                <div className="space-y-4">
+                  <Skeleton className="h-10 w-full" />
+                  <Skeleton className="h-10 w-full" />
+                  <Skeleton className="h-10 w-full" />
+                </div>
+              ) : (
               <>
                 {error && (
                   <Alert variant="warning">
@@ -256,7 +258,8 @@ export default function CurrencyConverter() {
                   <p className="text-sm text-gray-600">{t("info.description")}</p>
                 </div>
               </>
-            )}
+              )}
+            </div>
           </CardContent>
         </Card>
       </div>

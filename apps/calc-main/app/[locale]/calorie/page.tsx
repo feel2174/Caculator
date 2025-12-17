@@ -305,8 +305,10 @@ export default function CalorieCalculator() {
               {t("calculate")}
             </Button>
 
-            {result && (
-              <div className="mt-8 space-y-4">
+            {/* 결과 영역 - 고정 높이로 CLS 방지 */}
+            <div className="min-h-[350px]">
+              {result && (
+                <div className="mt-8 space-y-4">
                 <div className="p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-lg border-2 border-orange-200">
                   <div className="space-y-4">
                     <div className="text-center">
@@ -341,7 +343,8 @@ export default function CalorieCalculator() {
                   </div>
                 </div>
               </div>
-            )}
+              )}
+            </div>
 
             <div className="mt-6 p-4 bg-gray-50 rounded-lg">
               <h3 className="font-semibold mb-2">{t("info.title")}</h3>
@@ -357,6 +360,7 @@ export default function CalorieCalculator() {
     </div>
   );
 }
+
 
 
 

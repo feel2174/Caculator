@@ -120,8 +120,10 @@ export default function AgeCalculator() {
               {t("calculate")}
             </Button>
 
-            {result && (
-              <div className="mt-8 space-y-4">
+            {/* 결과 영역 - 고정 높이로 CLS 방지 */}
+            <div className="min-h-[300px]">
+              {result && (
+                <div className="mt-8 space-y-4">
                 <div className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border-2 border-purple-200">
                   <div className="grid grid-cols-2 gap-4 text-center">
                     <div>
@@ -156,7 +158,8 @@ export default function AgeCalculator() {
                   </div>
                 </div>
               </div>
-            )}
+              )}
+            </div>
 
             <div className="mt-6 p-4 bg-gray-50 rounded-lg">
               <h3 className="font-semibold mb-2">{t("info.title")}</h3>

@@ -108,29 +108,34 @@ export default function QRGenerator() {
               </p>
             </div>
 
-            {isGenerating && (
-              <div className="text-center text-gray-600">
-                QR 코드 생성 중...
-              </div>
-            )}
 
-            {qrCode && !isGenerating && (
-              <div className="mt-8 p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border-2 border-amber-200">
-                <div className="text-center space-y-4">
-                  <div>
-                    <img
-                      src={qrCode}
-                      alt="QR Code"
-                      className="mx-auto border-2 border-gray-300 rounded-lg"
-                      style={{ maxWidth: "300px" }}
-                    />
-                  </div>
-                  <Button onClick={downloadQR} variant="outline">
-                    QR 코드 다운로드
-                  </Button>
+            {/* QR 코드 영역 - 고정 높이로 CLS 방지 */}
+            <div className="min-h-[400px] flex items-center justify-center">
+              {isGenerating ? (
+                <div className="text-center text-gray-600">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto mb-4"></div>
+                  <p>QR 코드 생성 중...</p>
                 </div>
-              </div>
-            )}
+              ) : qrCode ? (
+                <div className="mt-8 p-6 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-lg border-2 border-amber-200 w-full">
+                  <div className="text-center space-y-4">
+                    <div className="flex justify-center">
+                      <img
+                        src={qrCode}
+                        alt="QR Code"
+                        width={300}
+                        height={300}
+                        className="mx-auto border-2 border-gray-300 rounded-lg"
+                        style={{ maxWidth: "100%", height: "auto" }}
+                      />
+                    </div>
+                    <Button onClick={downloadQR} variant="outline">
+                      QR 코드 다운로드
+                    </Button>
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </CardContent>
         </Card>
       </div>
