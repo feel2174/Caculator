@@ -16,7 +16,7 @@
     "@vercel/analytics": "^1.5.0",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.556.0",
-    "next": "15.0.5",
+    "next": "15.0.7",
     "next-intl": "^4.5.3",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",
