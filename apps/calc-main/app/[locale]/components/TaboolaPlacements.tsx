@@ -1,16 +1,6 @@
-"use client";
-
 import Script from "next/script";
-import { usePathname } from "next/navigation";
 
 export function TaboolaPlacements() {
-  const pathname = usePathname();
-  const isLocaleHome = /^\/[a-z]{2}$/.test(pathname);
-
-  if (isLocaleHome) {
-    return null;
-  }
-
   return (
     <>
       <aside
