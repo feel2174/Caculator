@@ -176,16 +176,6 @@ export default async function RootLayout({
           <BookmarkButton />
         </NextIntlClientProvider>
         <Analytics />
-        <Script
-          id="taboola-flush"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-window._taboola = window._taboola || [];
-_taboola.push({flush: true});
-            `,
-          }}
-        />
       </body>
     </html>
   );

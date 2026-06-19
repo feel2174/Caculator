@@ -53,6 +53,17 @@ _taboola.push({
           }}
         />
       </div>
+
+      <Script
+        id="taboola-flush"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+window._taboola = window._taboola || [];
+_taboola.push({flush: true});
+          `,
+        }}
+      />
     </>
   );
 }
